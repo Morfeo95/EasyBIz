@@ -1,0 +1,162 @@
+{
+    "EasyBiz": {
+      "loading": "Loading...",
+      "graphTitle": "Chart",
+      "supplyDetail": "Supply Details",
+      "plantExpenses": "Plant Expenses",
+      "dailyExpenses": "Daily/Other Expenses"
+    },
+    "supplyTable": {
+      "title": "Supplies",
+      "headers": {
+        "material": "Material",
+        "price": "Price",
+        "netContent": "Net Content",
+        "usedQuantity": "Used Quantity",
+        "costPerLot": "Cost per Lot"
+      },
+      "placeholders": {
+        "material": "Name of material (e.g., Steel)",
+        "price": "Price per unit (e.g., 100)",
+        "netContent": "Net content value",
+        "usedQuantity": {
+          "pieza": "Used quantity (pieces, e.g., 100)",
+          "gramo": "Used quantity (grams, e.g., 500)",
+          "litro": "Used quantity (liters, e.g., 1.5)"
+        },
+        "costPerLot": "Cost per lot"
+      },
+      "unit": {
+        "label": "Unit",
+        "options": {
+          "pieza": "Piece",
+          "gramo": "Gram",
+          "litro": "Liter"
+        }
+      },
+      "deleteTitle": "Delete supply",
+      "addButton": "Add Supply",
+      "total": "Total Supplies: $"
+    },
+    "expenseTable": {
+      "title": "Plant Costs",
+      "headers": {
+        "description": "Description",
+        "monthlyCost": "Monthly Cost"
+      },
+      "placeholders": {
+        "description": "e.g., Rent, electricity, water, internet",
+        "monthlyCost": "e.g., 1200 (amount in selected currency)"
+      },
+      "deleteTitle": "Delete expense",
+      "addButton": "Add Plant Expense",
+      "total": "Total: $"
+    },
+    "dailyExpenses": {
+      "title": "Daily/Other Expenses",
+      "workDays": "Work Days",
+      "costPerDay": "Cost per Day",
+      "dailyAvg": "Daily Sales Average (units)",
+      "localCost": "Local Cost",
+      "productionCost": "Production Cost",
+      "totalCost": "Total Cost",
+      "workDaysPlaceholder": "Number of work days in the month (e.g., 30)",
+      "dailyAvgPlaceholder": "Number of units sold per day (e.g., 20)",
+      "localCostPlaceholder": "Extra cost per unit (e.g., 2.02)",
+      "productionCostPlaceholder": "Production cost per unit (e.g., 10.50)"
+    },
+    "graficaPastel": {
+      "insumosTitle": "Supplies",
+      "plantExpensesTitle": "Plant Expenses"
+    },
+    "footer": {
+      "rights": "All rights reserved."
+    },
+    "graphSection": {
+      "title": "Cost Chart"
+    },
+    "nav": {
+      "brand": "EasyBiz",
+      "links": {
+        "home": "Home",
+        "products": "Products",
+        "contact": "Contact"
+      },
+      "languageSwitcher": {
+        "label": "Language",
+        "options": {
+          "es": "Español",
+          "en": "English",
+          "fr": "Français",
+          "pt": "Português"
+        }
+      }
+    },
+    "pdfReportButton": {
+      "generate": "Generate PDF",
+      "watermark": "Made in EasyBiz"
+    },
+    "productInfoForm": {
+      "currency": "Currency",
+      "productName": "Product Name",
+      "productNamePlaceholder": "e.g., Natural Shampoo, Artisan Soap",
+      "producedUnits": "Produced Units",
+      "producedUnitsPlaceholder": "Number of products to manufacture",
+      "timeFrame": "Time Frame",
+      "timeFrameOptions": {
+        "week": "1 Week",
+        "twoWeeks": "2 Weeks",
+        "month": "1 Month"
+      },
+      "gainPercentage": "Profit Margin (%)",
+      "gainPercentagePlaceholder": "e.g., 15 (desired profit percentage)"
+    },
+    "resultsSection": {
+      "header": {
+        "product": "Product",
+        "resultsSummary": "Results Summary"
+      },
+      "cards": {
+        "costElaboration": "Production Cost",
+        "fixedCostTotal": "Total Plant Cost",
+        "dailyUnitCost": "Daily Unit Cost",
+        "performance": "Performance (units)",
+        "saleUnitCost": "Unit Cost",
+        "gainPercentage": "% Profit",
+        "salePrice": "Sale Price",
+        "gain": "Profit"
+      },
+      "plantCostDetails": {
+        "title": "Plant Cost Details",
+        "description": "Description",
+        "monthlyCost": "Monthly Cost"
+      },
+      "suppliesDetails": {
+        "title": "Supplies Details",
+        "headers": {
+          "material": "Material",
+          "price": "Price",
+          "netContent": "Net Content",
+          "unit": "Unit",
+          "usedQuantity": "Used Quantity",
+          "costPerLot": "Cost per Lot"
+        }
+      }
+    },
+    "unitDropdown": {
+      "defaultLabel": "Piece",
+      "options": {
+        "pieza": "Piece",
+        "gramo": "Gram",
+        "litro": "Liter"
+      }
+    },
+    
+  "donations": {
+    "donate": "Donate",
+    "title": "Support Us",
+    "patreonButton": "Support Us on Patreon",
+    "koFiAlt": "Buy a coffee on ko-fi.com"
+  }
+  }
+  
