@@ -23,7 +23,7 @@
    ```
 
 ## 🌍 Live Demo
-🔗 [EasyBiz on Vercel](#) *(Coming Soon / Your Vercel Link)*
+🔗 [[EasyBiz on Vercel](https://easy-biz-alpha.vercel.app/)](#)
 
 ## 🤝 Contribute & Support
 EasyBiz is an open-source project aimed at helping small businesses manage their pricing effectively. Contributions and feedback are welcome! If you find this tool useful, consider supporting its development.
