@@ -1,12 +1,32 @@
-# React + Vite
+# EasyBiz – Cost Calculator 💼
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**EasyBiz** is an open-source tool designed to help small businesses calculate product costs easily. Enter material costs, expenses, wages, and profit margins to determine the ideal selling price.
 
-Currently, two official plugins are available:
+## 🚀 Features
+✅ Simple cost calculation  
+✅ Interactive charts  
+✅ PDF reports  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📦 Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/easybiz.git
+   cd easybiz
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-## Expanding the ESLint configuration
+## 🌍 Live Demo
+🔗 [EasyBiz on Vercel](#) *(Coming Soon / Your Vercel Link)*
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🤝 Contribute & Support
+EasyBiz is an open-source project aimed at helping small businesses manage their pricing effectively. Contributions and feedback are welcome! If you find this tool useful, consider supporting its development.
+
+### 📜 License
+This project is licensed under the MIT License.
