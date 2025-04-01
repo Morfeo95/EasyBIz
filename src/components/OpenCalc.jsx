@@ -25,18 +25,18 @@ const OpenCalc = () => {
     gainPercentage: 15, // Desired profit margin percentage
   });
 
-  // State for input materials (insumos), each with properties like material name, price, and cost per piece
+  // State for input materials (insumos)
   const [insumos, setInsumos] = useState([
     { material: '', price: '', netContent: '', netContentUnit: 'pieza', usedQuantity: '', costPerPiece: '' },
   ]);
 
-  // State for plant expenses (gastosPlanta), each with a name and monthly cost
+  // State for plant expenses (gastosPlanta)
   const [gastosPlanta, setGastosPlanta] = useState([{ name: '', monthlyCost: '' }]);
 
   // States for daily operational inputs
   const [workDays, setWorkDays] = useState(''); // Number of working days
   const [dailyAvg, setDailyAvg] = useState(''); // Average daily production
-  const [localCost, setLocalCost] = useState(''); // Additional local cost
+  const [localCost, setLocalCost] = useState(''); // Extra cost per unit (gasto extra por unidad)
 
   // Handler to update product information fields dynamically
   const handleProductInfoChange = (field, value) => {
@@ -48,6 +48,7 @@ const OpenCalc = () => {
     setInsumos((prev) => {
       const updated = [...prev];
       updated[index] = { ...updated[index], [field]: value };
+
       // Recalculate costPerPiece when price, netContent, or usedQuantity changes
       if (['price', 'netContent', 'usedQuantity'].includes(field)) {
         const price = toNumber(updated[index].price);
@@ -92,16 +93,16 @@ const OpenCalc = () => {
     setGastosPlanta((prev) => prev.filter((_, i) => i !== index));
   };
 
-  // Memoized calculation for the total cost of all insumos
+  // Memoized calculation for the total cost of all insumos (materia prima)
   const totalInsumos = useMemo(() => 
     insumos.reduce((acc, item) => acc + toNumber(item.costPerPiece), 0),
-    [insumos] // Recalculates only when insumos change
+    [insumos]
   );
 
-  // Memoized calculation for the total plant cost
+  // Memoized calculation for the total plant cost (gastos de planta)
   const plantCost = useMemo(() =>
     gastosPlanta.reduce((acc, gasto) => acc + toNumber(gasto.monthlyCost), 0),
-    [gastosPlanta] // Recalculates only when gastosPlanta change
+    [gastosPlanta]
   );
 
   // Production cost is directly tied to the total cost of insumos
@@ -123,8 +124,10 @@ const OpenCalc = () => {
 
   // Memoized calculation for financial results based on all inputs
   const results = useMemo(() => {
+    // Cálculo del costo fijo diario sin incluir el gasto extra local
     const fixedCostPerDay = workDays ? plantCost / toNumber(workDays) : plantCost;
-    let daysMultiplier = 1; // Multiplier to adjust costs based on time frame
+    
+    let daysMultiplier = 1; // Multiplicador para ajustar los costos según el período
     switch (productInfo.timeFrame) {
       case 'week':
         daysMultiplier = 7;
@@ -138,38 +141,46 @@ const OpenCalc = () => {
       default:
         break;
     }
-    const fixedCostTotal = fixedCostPerDay * daysMultiplier; // Total fixed cost over the time frame
-    const baseCost = totalInsumos + fixedCostTotal + toNumber(localCost); // Total base cost
-    const performance = toNumber(productInfo.producedUnits, 1); // Units produced, default to 1
-    const saleUnitCost = baseCost / performance; // Cost per unit sold
-    const gainPct = toNumber(productInfo.gainPercentage); // Gain percentage as a number
-    const salePriceCalc = saleUnitCost * (1 + gainPct / 100); // Sale price including gain
-    const gainCalc = salePriceCalc - saleUnitCost; // Profit per unit
+    
+    // Costo fijo total en el período, sin incluir el gasto extra por unidad
+    const fixedCostTotal = fixedCostPerDay * daysMultiplier;
+    // Costo base = insumos + costos fijos (sin gasto extra)
+    const baseCost = totalInsumos + fixedCostTotal;
+    // Unidades producidas (performance) con valor por defecto de 1 para evitar divisiones por cero
+    const performance = toNumber(productInfo.producedUnits, 1);
+    // Se agrega el gasto extra por unidad directamente al costo unitario
+    const saleUnitCost = (baseCost / performance) + toNumber(localCost);
+    const gainPct = toNumber(productInfo.gainPercentage); // Porcentaje de ganancia deseado
+    const salePriceCalc = saleUnitCost * (1 + gainPct / 100); // Precio de venta final por unidad
+    const gainCalc = salePriceCalc - saleUnitCost; // Ganancia por unidad
 
-    // Return an object with formatted financial results
+    // Para la visualización del costo diario por unidad, se elimina el gasto extra ya que es por unidad
+    const dailyUnitCost = (workDays && dailyAvg
+      ? (fixedCostPerDay / toNumber(dailyAvg)).toFixed(2) // Costo por unidad por día (sin incluir el gasto extra)
+      : fixedCostPerDay.toFixed(2));
+
+    // Retorna un objeto con los resultados financieros formateados
     return {
-      costElaboration: totalInsumos.toFixed(2), // Cost of materials
-      monthlyPlantCost: plantCost.toFixed(2), // Total plant expenses
-      fixedCostTotal: fixedCostTotal.toFixed(2), // Fixed cost over time frame
-      dailyUnitCost: (workDays && dailyAvg
-        ? (fixedCostPerDay / toNumber(dailyAvg)).toFixed(2) // Cost per unit per day
-        : fixedCostPerDay.toFixed(2)),
-      performance, // Units produced
-      saleUnitCost: saleUnitCost.toFixed(2), // Base cost per unit
-      gainPercentage: gainPct, // Desired gain percentage
-      salePrice: salePriceCalc.toFixed(2), // Final sale price per unit
-      gain: gainCalc.toFixed(2), // Profit per unit
+      costElaboration: totalInsumos.toFixed(2),         // Costo de elaboración (insumos)
+      monthlyPlantCost: plantCost.toFixed(2),            // Costo total de planta
+      fixedCostTotal: fixedCostTotal.toFixed(2),         // Costo fijo total en el período
+      dailyUnitCost: dailyUnitCost,                      // Costo unitario diario (sin gasto extra)
+      performance,                                       // Unidades producidas
+      saleUnitCost: saleUnitCost.toFixed(2),             // Costo base por unidad + gasto extra por unidad
+      gainPercentage: gainPct,                           // Porcentaje de ganancia deseado
+      salePrice: salePriceCalc.toFixed(2),               // Precio final de venta por unidad
+      gain: gainCalc.toFixed(2),                         // Ganancia por unidad
     };
   }, [totalInsumos, plantCost, workDays, localCost, productInfo, dailyAvg]);
 
-  // Render the UI with sections for product info, graphs, results, and tables
+  // Render de la interfaz con secciones para información del producto, gráficos, resultados y tablas
   return (
     <div className="bg-gray-100 p-6 rounded-md shadow-md space-y-8">
       {!translations ? (
-        <div>Loading...</div> // Display loading message if translations are not yet available
+        <div>Loading...</div> // Muestra mensaje de carga si las traducciones aún no están disponibles
       ) : (
         <>
-          {/* Product Information Section */}
+          {/* Sección de Información del Producto */}
           <section className="bg-white p-4 rounded-md shadow-sm">
             <ProductInfoForm
               currency={currency}
@@ -185,7 +196,7 @@ const OpenCalc = () => {
             />
           </section>
 
-          {/* Graphs and Results Section */}
+          {/* Sección de Gráficos y Resultados */}
           <section id="pdf-container" className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="md:col-span-1 bg-white p-4 rounded-md shadow-sm">
               <GraphSection insumos={insumos} gastosPlanta={gastosPlanta} />
@@ -201,7 +212,7 @@ const OpenCalc = () => {
             </div>
           </section>
 
-          {/* Tables Section */}
+          {/* Sección de Tablas */}
           <section className="space-y-6">
             <div className="bg-white p-4 rounded-md shadow-sm">
               <SupplyTable
