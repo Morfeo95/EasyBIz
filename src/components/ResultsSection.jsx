@@ -3,18 +3,14 @@ import { motion } from 'framer-motion';
 import { FileText, DollarSign, Layers } from 'lucide-react';
 import PDFReportButton from './PDFReportButton';
 import useTranslations from '../hooks/useTranslations';
+import HelpTooltip from './HelpTooltip';
 
-// Define the ResultsSection component which receives several props related to results and costs
 const ResultsSection = ({ results, gastosPlanta, insumos, productName, currency }) => {
-  const messages = useTranslations(); // Retrieve translation messages using custom hook
+  const messages = useTranslations();
+  if (!messages) return <div className="text-green-700 font-bold">Cargando...</div>;
 
-  // If translations are not loaded yet, show a loading indicator
-  if (!messages) return <div className="text-green-700 font-bold">Loading...</div>;
-
-  // Destructure necessary translation messages for this section
+  // Desestructuración de textos y valores de resultados
   const { header, cards, plantCostDetails, suppliesDetails } = messages.resultsSection;
-  
-  // Destructure various result values from the results prop
   const {
     costElaboration,
     monthlyPlantCost,
@@ -27,27 +23,26 @@ const ResultsSection = ({ results, gastosPlanta, insumos, productName, currency 
     gain,
   } = results;
 
-  // Prepare data for the result cards using an array of objects
+  // Preparación de las tarjetas de resultados
   const resultCards = [
-    { label: cards.costElaboration, value: costElaboration, showCurrency: true },
-    { label: cards.fixedCostTotal, value: monthlyPlantCost, showCurrency: true },
-    { label: cards.dailyUnitCost, value: dailyUnitCost, showCurrency: true },
-    { label: cards.performance, value: performance, showCurrency: false },
-    { label: cards.saleUnitCost, value: saleUnitCost, showCurrency: true },
-    { label: cards.gainPercentage, value: `${gainPercentage}%`, showCurrency: false },
-    { label: cards.salePrice, value: salePrice, showCurrency: true },
-    { label: cards.gain, value: gain, showCurrency: true },
+    { label: cards.costElaboration, value: costElaboration, showCurrency: true, help: cards.help.costElaboration },
+    { label: cards.fixedCostTotal, value: monthlyPlantCost, showCurrency: true, help: cards.help.fixedCostTotal },
+    { label: cards.dailyUnitCost, value: dailyUnitCost, showCurrency: true, help: cards.help.dailyUnitCost },
+    { label: cards.performance, value: performance, showCurrency: false, help: cards.help.performance },
+    { label: cards.saleUnitCost, value: saleUnitCost, showCurrency: true, help: cards.help.saleUnitCost },
+    { label: cards.gainPercentage, value: `${gainPercentage}%`, showCurrency: false, help: cards.help.gainPercentage },
+    { label: cards.salePrice, value: salePrice, showCurrency: true, help: cards.help.salePrice },
+    { label: cards.gain, value: gain, showCurrency: true, help: cards.help.gain }
   ];
 
   return (
-    // Main container for the results section with motion animation
     <motion.div
       className="bg-white bg-opacity-70 backdrop-blur-sm border border-green-200 p-6 rounded-2xl shadow-lg"
-      initial={{ opacity: 0, y: 10 }} // Initial state for the animation
-      animate={{ opacity: 1, y: 0 }} // Animate to a fully visible state
-      transition={{ duration: 0.5 }} // Duration for the transition animation
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
     >
-      {/* PDF Report Button Section */}
+      {/* Botón para generar reporte en PDF */}
       <div className="flex justify-end mb-4">
         <PDFReportButton
           results={results}
@@ -58,27 +53,31 @@ const ResultsSection = ({ results, gastosPlanta, insumos, productName, currency 
         />
       </div>
 
-      {/* Header Section for the results */}
+      {/* Encabezado de la sección */}
       <header className="mb-6">
         <h2 className="text-2xl font-montserrat font-bold text-green-700 flex items-center gap-2">
-          <FileText size={24} className="text-green-500" /> {/* Icon for the header */}
+          <FileText size={24} className="text-green-500" />
           {productName ? `${header.product}: ${productName}` : header.product}
+          <HelpTooltip text={header.help.product} />
         </h2>
-        <h3 className="text-xl font-montserrat font-bold text-green-700">
+        <h3 className="text-xl font-montserrat font-bold text-green-700 flex items-center gap-2">
           {header.resultsSummary}
+          <HelpTooltip text={header.help.resultsSummary} />
         </h3>
       </header>
 
-      {/* Grid Layout for Result Cards */}
+      {/* Tarjetas de resultados */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         {resultCards.map((item, index) => (
-          // Each card is wrapped in a motion.div for a hover scale effect
           <motion.div
             key={index}
             className="p-4 border rounded-xl shadow-md bg-white"
             whileHover={{ scale: 1.05 }}
           >
-            <label className="block font-ubuntu text-sm text-gray-600">{item.label}</label>
+            <label className="font-ubuntu text-sm text-gray-600 flex items-center gap-1">
+              {item.label}
+              {item.help && <HelpTooltip text={item.help} />}
+            </label>
             <div className="text-lg text-green-700 font-bold">
               {item.showCurrency ? `${currency} ${item.value}` : item.value}
             </div>
@@ -86,27 +85,35 @@ const ResultsSection = ({ results, gastosPlanta, insumos, productName, currency 
         ))}
       </section>
 
-      {/* Section for Plant Cost Details */}
+      {/* Detalles de Gastos de Planta */}
       <section className="mb-8">
         <h4 className="text-lg font-montserrat font-bold text-green-700 flex items-center gap-2 mb-3">
-          <DollarSign size={20} className="text-green-500" /> {/* Icon for plant cost details */}
+          <DollarSign size={20} className="text-green-500" />
           {plantCostDetails.title}
+          <HelpTooltip text={plantCostDetails.help.title} />
         </h4>
         <div className="overflow-x-auto">
           <table className="w-full text-left text-sm font-raleway border border-green-200 rounded-lg">
             <thead className="bg-green-100">
               <tr>
-                <th className="p-2">{plantCostDetails.description}</th>
-                <th className="p-2">{plantCostDetails.monthlyCost}</th>
+                <th className="p-2  items-center gap-1">
+                  <div className='flex'>
+                    {plantCostDetails.description}
+                    <HelpTooltip text={plantCostDetails.help.description} />
+                  </div>
+                  
+                </th>
+                <th className="p-2 flex items-center gap-1">
+                  {plantCostDetails.monthlyCost}
+                  <HelpTooltip text={plantCostDetails.help.monthlyCost} />
+                </th>
               </tr>
             </thead>
             <tbody>
               {gastosPlanta.map((gasto, index) => (
                 <tr key={index} className="border-b last:border-0">
                   <td className="p-2">{gasto.name || '-'}</td>
-                  <td className="p-2">
-                    {currency} {parseFloat(gasto.monthlyCost || 0).toFixed(2)}
-                  </td>
+                  <td className="p-2">{currency} {parseFloat(gasto.monthlyCost || 0).toFixed(2)}</td>
                 </tr>
               ))}
             </tbody>
@@ -114,22 +121,58 @@ const ResultsSection = ({ results, gastosPlanta, insumos, productName, currency 
         </div>
       </section>
 
-      {/* Section for Supplies Details */}
+      {/* Detalles de Insumos */}
       <section>
         <h4 className="text-lg font-montserrat font-bold text-green-700 flex items-center gap-2 mb-3">
-          <Layers size={20} className="text-green-500" /> {/* Icon for supplies details */}
+          <Layers size={20} className="text-green-500" />
           {suppliesDetails.title}
+          <HelpTooltip text={suppliesDetails.help.title} />
         </h4>
         <div className="overflow-x-auto">
           <table className="w-full text-left text-sm font-raleway border border-green-200 rounded-lg">
             <thead className="bg-green-100 hidden md:table-header-group">
               <tr>
-                <th className="p-2">{suppliesDetails.headers.material}</th>
-                <th className="p-2">{suppliesDetails.headers.price}</th>
-                <th className="p-2">{suppliesDetails.headers.netContent}</th>
-                <th className="p-2">{suppliesDetails.headers.unit}</th>
-                <th className="p-2">{suppliesDetails.headers.usedQuantity}</th>
-                <th className="p-2">{suppliesDetails.headers.costPerLot}</th>
+                <th className="p-2 flex items-center gap-1">
+                  {suppliesDetails.headers.material}
+                  <HelpTooltip text={suppliesDetails.help.material} />
+                </th>
+                <th className="p-2  items-center gap-1">
+                  <div className='flex'>
+                  {suppliesDetails.headers.price}
+                  <HelpTooltip text={suppliesDetails.help.price} />
+                  </div>
+                  
+                </th>
+                <th className="p-2  items-center gap-1">
+                  <div className='flex'>
+                    {suppliesDetails.headers.netContent}
+                  <HelpTooltip text={suppliesDetails.help.netContent} />
+                  </div>
+                  
+                </th>
+                <th className="p-2  items-center gap-1">
+                <div className='flex'>
+                  {suppliesDetails.headers.unit}
+                  <HelpTooltip text={suppliesDetails.help.unit} />
+                </div>
+
+                </th>
+                <th className="p-2  items-center gap-1">
+                <div className='flex'>
+                  {suppliesDetails.headers.usedQuantity}
+                  <HelpTooltip text={suppliesDetails.help.usedQuantity} />
+                </div>
+
+                  
+                </th>
+                <th className="p-2  items-center gap-1">
+                <div className='flex'>
+                  {suppliesDetails.headers.costPerLot}
+                  <HelpTooltip text={suppliesDetails.help.costPerLot} />
+                </div>
+
+                  
+                </th>
               </tr>
             </thead>
             <tbody>

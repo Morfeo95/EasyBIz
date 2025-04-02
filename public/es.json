@@ -1,10 +1,22 @@
 {
-  "EasyBi": {
+  "EasyBiz": {
     "loading": "Cargando...",
     "graphTitle": "Gráfica",
     "supplyDetail": "Detalle de Insumos",
     "plantExpenses": "Gastos de Planta",
-    "dailyExpenses": "Gastos Diarios / Otros"
+    "dailyExpenses": "Gastos Diarios y Otros"
+  },
+  "donationModal": {
+    "message": "¡Ayúdanos a seguir mejorando donando para nuestro proyecto!"
+  },
+  "productInfoSection": {
+    "title": "Información del Producto"
+  },
+  "operationalData": {
+    "title": "Datos Operativos"
+  },
+  "resultsAndGraphs": {
+    "title": "Resultados y Gráficos"
   },
   "supplyTable": {
     "title": "Insumos",
@@ -13,18 +25,18 @@
       "price": "Precio",
       "netContent": "Contenido Neto",
       "usedQuantity": "Cantidad Usada",
-      "costPerLot": "Costo x Lote"
+      "costPerLot": "Costo por Lote"
     },
     "placeholders": {
       "material": "Nombre del material (ej. Acero)",
       "price": "Precio por unidad (ej. 100)",
       "netContent": "Valor del contenido neto",
       "usedQuantity": {
-        "pieza": "Cantidad Usada (piezas, ej. 100)",
-        "gramo": "Cantidad Usada (gramos, ej. 500)",
-        "litro": "Cantidad Usada (litros, ej. 1.5)"
+        "pieza": "Cantidad usada (ej. 100 piezas)",
+        "gramo": "Cantidad usada (ej. 500 gramos)",
+        "litro": "Cantidad usada (ej. 1.5 litros)"
       },
-      "costPerLot": "Costo por lote"
+      "costPerLot": "Costo calculado por lote"
     },
     "unit": {
       "label": "Unidad",
@@ -35,11 +47,19 @@
       }
     },
     "deleteTitle": "Eliminar insumo",
-    "addButton": "Añadir Insumo",
-    "total": "Total Insumos: $"
+    "addButton": "Añadir insumo",
+    "total": "Total Insumos: $",
+    "help": {
+      "title": "Información sobre los insumos utilizados en la producción.",
+      "material": "Nombre del insumo o materia prima a utilizar.",
+      "price": "Costo unitario del insumo en la moneda seleccionada.",
+      "netContent": "Cantidad del insumo que constituye su contenido neto (por unidad de medida).",
+      "usedQuantity": "Cantidad del insumo que se utiliza en cada lote de producción.",
+      "costPerLot": "Costo resultante por lote, calculado a partir del precio, contenido neto y cantidad utilizada."
+    }
   },
   "expenseTable": {
-    "title": "Costos Planta",
+    "title": "Gastos de Planta",
     "headers": {
       "description": "Descripción",
       "monthlyCost": "Costo Mensual"
@@ -49,21 +69,35 @@
       "monthlyCost": "Ej. 1200 (monto en la moneda seleccionada)"
     },
     "deleteTitle": "Eliminar gasto",
-    "addButton": "Añadir Gasto de Planta",
-    "total": "Total: $"
+    "addButton": "Añadir gasto de planta",
+    "total": "Total: $",
+    "help": {
+      "title": "Ingrese los gastos fijos asociados a la planta.",
+      "description": "Descripción del gasto, por ejemplo, alquiler o servicios públicos.",
+      "monthlyCost": "Costo mensual asignado al gasto indicado."
+    }
   },
   "dailyExpenses": {
-    "title": "Gastos Diarios / Otros",
+    "title": "Gastos Diarios y Operación",
     "workDays": "Días de Trabajo",
     "costPerDay": "Costo por Día",
-    "dailyAvg": "Promedio de venta diaria (unidades)",
+    "dailyAvg": "Promedio de Ventas Diarias (unidades)",
     "localCost": "Costo Local",
-    "productionCost": "Costo Producción",
+    "productionCost": "Costo de Producción",
     "totalCost": "Costo Total",
     "workDaysPlaceholder": "Cantidad de días laborables en el mes (Ej. 30)",
     "dailyAvgPlaceholder": "Número de unidades vendidas por día (Ej. 20)",
     "localCostPlaceholder": "Gasto extra por unidad (Ej. 2.02)",
-    "productionCostPlaceholder": "Costo de producción por unidad (Ej. 10.50)"
+    "productionCostPlaceholder": "Costo de producción por unidad (Ej. 10.50)",
+    "help": {
+      "title": "Ingrese la información diaria de operación y costos asociados.",
+      "workDays": "Número de días en que se opera la planta durante el período.",
+      "costPerDay": "Costo diario calculado en función de los gastos de planta y los días laborables.",
+      "dailyAvg": "Promedio de unidades producidas o vendidas por día.",
+      "localCost": "Costo adicional por unidad debido a gastos locales extra.",
+      "productionCost": "Costo total de producción sin incluir el gasto extra local.",
+      "totalCost": "Suma del costo de producción y los gastos fijos de la planta."
+    }
   },
   "graficaPastel": {
     "insumosTitle": "Insumos",
@@ -109,27 +143,53 @@
       "month": "1 Mes"
     },
     "gainPercentage": "Margen de Ganancia (%)",
-    "gainPercentagePlaceholder": "Ej. 15 (Porcentaje de ganancia deseado)"
+    "gainPercentagePlaceholder": "Ej. 15 (Porcentaje de ganancia deseado)",
+    "help": {
+      "currency": "Seleccione la moneda en la que se expresarán los costos y precios.",
+      "productName": "Nombre identificador del producto.",
+      "producedUnits": "Número total de unidades que se producirán en el período seleccionado.",
+      "timeFrame": "Elija el período de producción (por ejemplo, semana, dos semanas, mes).",
+      "gainPercentage": "Porcentaje adicional que se agregará al costo para definir el precio de venta."
+    }
   },
   "resultsSection": {
     "header": {
       "product": "Producto",
-      "resultsSummary": "Resumen de Resultados"
+      "resultsSummary": "Resumen de Resultados",
+      "help": {
+        "product": "Este título muestra el nombre del producto para identificar el informe.",
+        "resultsSummary": "Resumen breve de los resultados obtenidos en el análisis."
+      }
     },
     "cards": {
       "costElaboration": "Costo de Elaboración",
       "fixedCostTotal": "Costo Planta Total",
       "dailyUnitCost": "Costo Unitario Diario",
       "performance": "Rendimiento (unidades)",
-      "saleUnitCost": "Costo Unitario",
+      "saleUnitCost": "Costo Unitario de Venta",
       "gainPercentage": "% Ganancia",
       "salePrice": "Precio de Venta",
-      "gain": "Ganancia"
+      "gain": "Ganancia",
+      "help": {
+        "costElaboration": "Costo asociado a la elaboración, calculado a partir del costo de insumos.",
+        "fixedCostTotal": "Costo fijo total basado en los gastos de planta durante el período.",
+        "dailyUnitCost": "Costo diario por unidad, considerando el costo fijo y el número de días de operación.",
+        "performance": "Cantidad total de unidades producidas en el período seleccionado.",
+        "saleUnitCost": "Costo base por unidad de venta, que incluye costos directos y gastos adicionales.",
+        "gainPercentage": "Porcentaje adicional que se aplica al costo para determinar la ganancia.",
+        "salePrice": "Precio final de venta por unidad, resultante del costo unitario más la ganancia.",
+        "gain": "Diferencia entre el precio de venta y el costo base por unidad."
+      }
     },
     "plantCostDetails": {
       "title": "Detalle de Costos de Planta",
       "description": "Descripción",
-      "monthlyCost": "Costo Mensual"
+      "monthlyCost": "Costo Mensual",
+      "help": {
+        "title": "Información detallada sobre los gastos fijos de la planta.",
+        "description": "Descripción del gasto, por ejemplo, alquiler, servicios públicos, etc.",
+        "monthlyCost": "Costo mensual asignado a cada concepto de gasto de planta."
+      }
     },
     "suppliesDetails": {
       "title": "Detalle de Insumos",
@@ -139,7 +199,16 @@
         "netContent": "Contenido Neto",
         "unit": "Unidad",
         "usedQuantity": "Cantidad Usada",
-        "costPerLot": "Costo x Lote"
+        "costPerLot": "Costo por Lote"
+      },
+      "help": {
+        "title": "Información detallada sobre los insumos utilizados en la producción.",
+        "material": "Nombre del insumo o materia prima.",
+        "price": "Precio del insumo en la moneda seleccionada.",
+        "netContent": "Cantidad que representa el contenido neto del insumo.",
+        "unit": "Unidad de medida del insumo, por ejemplo, pieza, kg, litro.",
+        "usedQuantity": "Cantidad del insumo utilizada para la producción en el período.",
+        "costPerLot": "Costo resultante por lote, calculado a partir del precio, contenido neto y cantidad utilizada."
       }
     }
   },
@@ -151,7 +220,6 @@
       "litro": "Litro"
     }
   },
-  
   "donations": {
     "donate": "Donar",
     "title": "Apóyanos",

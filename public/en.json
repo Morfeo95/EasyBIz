@@ -1,10 +1,22 @@
 {
-    "EasyBiz": {
+ "EasyBiz": {
       "loading": "Loading...",
       "graphTitle": "Chart",
-      "supplyDetail": "Supply Details",
+      "supplyDetail": "Supplies Detail",
       "plantExpenses": "Plant Expenses",
-      "dailyExpenses": "Daily/Other Expenses"
+      "dailyExpenses": "Daily Expenses and Others"
+    },
+    "donationModal": {
+      "message": "Help us keep improving by donating to our project!"
+    },
+    "productInfoSection": {
+      "title": "Product Information"
+    },
+    "operationalData": {
+      "title": "Operational Data"
+    },
+    "resultsAndGraphs": {
+      "title": "Results and Graphs"
     },
     "supplyTable": {
       "title": "Supplies",
@@ -16,15 +28,15 @@
         "costPerLot": "Cost per Lot"
       },
       "placeholders": {
-        "material": "Name of material (e.g., Steel)",
-        "price": "Price per unit (e.g., 100)",
+        "material": "Material name (e.g. Steel)",
+        "price": "Price per unit (e.g. 100)",
         "netContent": "Net content value",
         "usedQuantity": {
-          "pieza": "Used quantity (pieces, e.g., 100)",
-          "gramo": "Used quantity (grams, e.g., 500)",
-          "litro": "Used quantity (liters, e.g., 1.5)"
+          "pieza": "Used quantity (e.g. 100 pieces)",
+          "gramo": "Used quantity (e.g. 500 grams)",
+          "litro": "Used quantity (e.g. 1.5 liters)"
         },
-        "costPerLot": "Cost per lot"
+        "costPerLot": "Calculated cost per lot"
       },
       "unit": {
         "label": "Unit",
@@ -35,35 +47,57 @@
         }
       },
       "deleteTitle": "Delete supply",
-      "addButton": "Add Supply",
-      "total": "Total Supplies: $"
+      "addButton": "Add supply",
+      "total": "Total Supplies: $",
+      "help": {
+        "title": "Information about the supplies used in production.",
+        "material": "Name of the supply or raw material to be used.",
+        "price": "Unit cost of the supply in the selected currency.",
+        "netContent": "Amount of the supply that constitutes its net content (per unit of measure).",
+        "usedQuantity": "Quantity of the supply used in each production lot.",
+        "costPerLot": "Resulting cost per lot, calculated from the price, net content, and used quantity."
+      }
     },
     "expenseTable": {
-      "title": "Plant Costs",
+      "title": "Plant Expenses",
       "headers": {
         "description": "Description",
         "monthlyCost": "Monthly Cost"
       },
       "placeholders": {
-        "description": "e.g., Rent, electricity, water, internet",
-        "monthlyCost": "e.g., 1200 (amount in selected currency)"
+        "description": "e.g. Rent, electricity, water, internet",
+        "monthlyCost": "e.g. 1200 (amount in the selected currency)"
       },
       "deleteTitle": "Delete expense",
-      "addButton": "Add Plant Expense",
-      "total": "Total: $"
+      "addButton": "Add plant expense",
+      "total": "Total: $",
+      "help": {
+        "title": "Enter the fixed costs associated with the plant.",
+        "description": "Description of the expense, e.g. rent or utilities.",
+        "monthlyCost": "Monthly cost assigned to the specified expense."
+      }
     },
     "dailyExpenses": {
-      "title": "Daily/Other Expenses",
+      "title": "Daily Expenses and Operation",
       "workDays": "Work Days",
       "costPerDay": "Cost per Day",
       "dailyAvg": "Daily Sales Average (units)",
       "localCost": "Local Cost",
       "productionCost": "Production Cost",
       "totalCost": "Total Cost",
-      "workDaysPlaceholder": "Number of work days in the month (e.g., 30)",
-      "dailyAvgPlaceholder": "Number of units sold per day (e.g., 20)",
-      "localCostPlaceholder": "Extra cost per unit (e.g., 2.02)",
-      "productionCostPlaceholder": "Production cost per unit (e.g., 10.50)"
+      "workDaysPlaceholder": "Number of working days in the month (e.g. 30)",
+      "dailyAvgPlaceholder": "Number of units sold per day (e.g. 20)",
+      "localCostPlaceholder": "Extra cost per unit (e.g. 2.02)",
+      "productionCostPlaceholder": "Production cost per unit (e.g. 10.50)",
+      "help": {
+        "title": "Enter the daily operation information and associated costs.",
+        "workDays": "Number of days the plant operates during the period.",
+        "costPerDay": "Daily cost calculated based on plant expenses and working days.",
+        "dailyAvg": "Average number of units produced or sold per day.",
+        "localCost": "Additional cost per unit due to extra local expenses.",
+        "productionCost": "Total production cost excluding extra local cost.",
+        "totalCost": "Sum of production cost and fixed plant expenses."
+      }
     },
     "graficaPastel": {
       "insumosTitle": "Supplies",
@@ -85,10 +119,10 @@
       "languageSwitcher": {
         "label": "Language",
         "options": {
-          "es": "Español",
+          "es": "Spanish",
           "en": "English",
-          "fr": "Français",
-          "pt": "Português"
+          "fr": "French",
+          "pt": "Portuguese"
         }
       }
     },
@@ -99,9 +133,9 @@
     "productInfoForm": {
       "currency": "Currency",
       "productName": "Product Name",
-      "productNamePlaceholder": "e.g., Natural Shampoo, Artisan Soap",
+      "productNamePlaceholder": "e.g. Natural Shampoo, Artisan Soap",
       "producedUnits": "Produced Units",
-      "producedUnitsPlaceholder": "Number of products to manufacture",
+      "producedUnitsPlaceholder": "Number of products you will produce",
       "timeFrame": "Time Frame",
       "timeFrameOptions": {
         "week": "1 Week",
@@ -109,27 +143,53 @@
         "month": "1 Month"
       },
       "gainPercentage": "Profit Margin (%)",
-      "gainPercentagePlaceholder": "e.g., 15 (desired profit percentage)"
+      "gainPercentagePlaceholder": "e.g. 15 (Desired profit percentage)",
+      "help": {
+        "currency": "Select the currency in which costs and prices will be expressed.",
+        "productName": "Identifier name for the product.",
+        "producedUnits": "Total number of units that will be produced in the selected period.",
+        "timeFrame": "Choose the production period (e.g., week, two weeks, month).",
+        "gainPercentage": "Additional percentage added to the cost to determine the sale price."
+      }
     },
     "resultsSection": {
       "header": {
         "product": "Product",
-        "resultsSummary": "Results Summary"
+        "resultsSummary": "Results Summary",
+        "help": {
+          "product": "This title shows the product name to identify the report.",
+          "resultsSummary": "Brief summary of the results obtained in the analysis."
+        }
       },
       "cards": {
-        "costElaboration": "Production Cost",
+        "costElaboration": "Elaboration Cost",
         "fixedCostTotal": "Total Plant Cost",
         "dailyUnitCost": "Daily Unit Cost",
         "performance": "Performance (units)",
-        "saleUnitCost": "Unit Cost",
+        "saleUnitCost": "Sale Unit Cost",
         "gainPercentage": "% Profit",
         "salePrice": "Sale Price",
-        "gain": "Profit"
+        "gain": "Profit",
+        "help": {
+          "costElaboration": "Cost associated with production, calculated from the cost of supplies.",
+          "fixedCostTotal": "Total fixed cost based on plant expenses during the period.",
+          "dailyUnitCost": "Daily cost per unit, considering fixed cost and number of operating days.",
+          "performance": "Total number of units produced in the selected period.",
+          "saleUnitCost": "Base cost per sale unit, including direct costs and additional expenses.",
+          "gainPercentage": "Additional percentage applied to the cost to determine profit.",
+          "salePrice": "Final sale price per unit, resulting from the unit cost plus profit.",
+          "gain": "Difference between sale price and base cost per unit."
+        }
       },
       "plantCostDetails": {
         "title": "Plant Cost Details",
         "description": "Description",
-        "monthlyCost": "Monthly Cost"
+        "monthlyCost": "Monthly Cost",
+        "help": {
+          "title": "Detailed information about the fixed plant expenses.",
+          "description": "Description of the expense, e.g., rent, utilities, etc.",
+          "monthlyCost": "Monthly cost assigned to each plant expense item."
+        }
       },
       "suppliesDetails": {
         "title": "Supplies Details",
@@ -140,6 +200,15 @@
           "unit": "Unit",
           "usedQuantity": "Used Quantity",
           "costPerLot": "Cost per Lot"
+        },
+        "help": {
+          "title": "Detailed information about the supplies used in production.",
+          "material": "Name of the supply or raw material.",
+          "price": "Price of the supply in the selected currency.",
+          "netContent": "Amount representing the net content of the supply.",
+          "unit": "Unit of measurement for the supply, e.g., piece, kg, liter.",
+          "usedQuantity": "Quantity of the supply used for production during the period.",
+          "costPerLot": "Resulting cost per lot, calculated from price, net content, and quantity used."
         }
       }
     },
@@ -151,12 +220,10 @@
         "litro": "Liter"
       }
     },
-    
-  "donations": {
-    "donate": "Donate",
-    "title": "Support Us",
-    "patreonButton": "Support Us on Patreon",
-    "koFiAlt": "Buy a coffee on ko-fi.com"
+    "donations": {
+      "donate": "Donate",
+      "title": "Support Us",
+      "patreonButton": "Support us on Patreon",
+      "koFiAlt": "Buy a coffee on ko-fi.com"
+    }
   }
-  }
-  

@@ -1,161 +1,230 @@
 {
-    "EasyBiz": {
-      "loading": "Carregando...",
-      "graphTitle": "Gráfico",
-      "supplyDetail": "Detalhes dos Insumos",
-      "plantExpenses": "Despesas da Planta",
-      "dailyExpenses": "Despesas Diárias / Outras"
+  "EasyBiz": {
+    "loading": "Carregando...",
+    "graphTitle": "Gráfico",
+    "supplyDetail": "Detalhe dos Insumos",
+    "plantExpenses": "Despesas da Planta",
+    "dailyExpenses": "Despesas Diárias e Outros"
+  },
+  "donationModal": {
+    "message": "Ajude-nos a continuar melhorando doando para o nosso projeto!"
+  },
+  "productInfoSection": {
+    "title": "Informações do Produto"
+  },
+  "operationalData": {
+    "title": "Dados Operacionais"
+  },
+  "resultsAndGraphs": {
+    "title": "Resultados e Gráficos"
+  },
+  "supplyTable": {
+    "title": "Insumos",
+    "headers": {
+      "material": "Material",
+      "price": "Preço",
+      "netContent": "Conteúdo Líquido",
+      "usedQuantity": "Quantidade Utilizada",
+      "costPerLot": "Custo por Lote"
     },
-    "supplyTable": {
-      "title": "Insumos",
-      "headers": {
-        "material": "Material",
-        "price": "Preço",
-        "netContent": "Conteúdo Líquido",
-        "usedQuantity": "Quantidade Usada",
-        "costPerLot": "Custo por Lote"
+    "placeholders": {
+      "material": "Nome do material (ex. Aço)",
+      "price": "Preço por unidade (ex. 100)",
+      "netContent": "Valor do conteúdo líquido",
+      "usedQuantity": {
+        "pieza": "Quantidade usada (ex. 100 peças)",
+        "gramo": "Quantidade usada (ex. 500 gramas)",
+        "litro": "Quantidade usada (ex. 1,5 litros)"
       },
-      "placeholders": {
-        "material": "Nome do material (ex.: Aço)",
-        "price": "Preço por unidade (ex.: 100)",
-        "netContent": "Valor do conteúdo líquido",
-        "usedQuantity": {
-          "pieza": "Quantidade usada (peças, ex.: 100)",
-          "gramo": "Quantidade usada (gramas, ex.: 500)",
-          "litro": "Quantidade usada (litros, ex.: 1.5)"
-        },
-        "costPerLot": "Custo por lote"
-      },
-      "unit": {
-        "label": "Unidade",
-        "options": {
-          "pieza": "Peça",
-          "gramo": "Grama",
-          "litro": "Litro"
-        }
-      },
-      "deleteTitle": "Excluir insumo",
-      "addButton": "Adicionar Insumo",
-      "total": "Total de Insumos: $"
+      "costPerLot": "Custo calculado por lote"
     },
-    "expenseTable": {
-      "title": "Custos da Planta",
-      "headers": {
-        "description": "Descrição",
-        "monthlyCost": "Custo Mensal"
-      },
-      "placeholders": {
-        "description": "ex.: Aluguel, eletricidade, água, internet",
-        "monthlyCost": "ex.: 1200 (valor na moeda selecionada)"
-      },
-      "deleteTitle": "Excluir despesa",
-      "addButton": "Adicionar Despesa da Planta",
-      "total": "Total: $"
-    },
-    "dailyExpenses": {
-      "title": "Despesas Diárias / Outras",
-      "workDays": "Dias de Trabalho",
-      "costPerDay": "Custo por Dia",
-      "dailyAvg": "Média diária de vendas (unidades)",
-      "localCost": "Custo Local",
-      "productionCost": "Custo de Produção",
-      "totalCost": "Custo Total",
-      "workDaysPlaceholder": "Número de dias úteis no mês (ex.: 30)",
-      "dailyAvgPlaceholder": "Número de unidades vendidas por dia (ex.: 20)",
-      "localCostPlaceholder": "Custo extra por unidade (ex.: 2.02)",
-      "productionCostPlaceholder": "Custo de produção por unidade (ex.: 10.50)"
-    },
-    "graficaPastel": {
-      "insumosTitle": "Insumos",
-      "plantExpensesTitle": "Despesas da Planta"
-    },
-    "footer": {
-      "rights": "Todos os direitos reservados."
-    },
-    "graphSection": {
-      "title": "Gráfico de Custos"
-    },
-    "nav": {
-      "brand": "EasyBiz",
-      "links": {
-        "home": "Início",
-        "products": "Produtos",
-        "contact": "Contato"
-      },
-      "languageSwitcher": {
-        "label": "Idioma",
-        "options": {
-          "es": "Español",
-          "en": "English",
-          "fr": "Français",
-          "pt": "Português"
-        }
-      }
-    },
-    "pdfReportButton": {
-      "generate": "Gerar PDF",
-      "watermark": "Feito em EasyBiz"
-    },
-    "productInfoForm": {
-      "currency": "Moeda",
-      "productName": "Nome do Produto",
-      "productNamePlaceholder": "ex.: Shampoo Natural, Sabonete Artesanal",
-      "producedUnits": "Unidades Produzidas",
-      "producedUnitsPlaceholder": "Quantidade de produtos que serão fabricados",
-      "timeFrame": "Prazo",
-      "timeFrameOptions": {
-        "week": "1 Semana",
-        "twoWeeks": "2 Semanas",
-        "month": "1 Mês"
-      },
-      "gainPercentage": "Margem de Lucro (%)",
-      "gainPercentagePlaceholder": "ex.: 15 (percentual de lucro desejado)"
-    },
-    "resultsSection": {
-      "header": {
-        "product": "Produto",
-        "resultsSummary": "Resumo dos Resultados"
-      },
-      "cards": {
-        "costElaboration": "Custo de Produção",
-        "fixedCostTotal": "Custo Total da Planta",
-        "dailyUnitCost": "Custo Unitário Diário",
-        "performance": "Desempenho (unidades)",
-        "saleUnitCost": "Custo Unitário",
-        "gainPercentage": "% Lucro",
-        "salePrice": "Preço de Venda",
-        "gain": "Lucro"
-      },
-      "plantCostDetails": {
-        "title": "Detalhes dos Custos da Planta",
-        "description": "Descrição",
-        "monthlyCost": "Custo Mensal"
-      },
-      "suppliesDetails": {
-        "title": "Detalhes dos Insumos",
-        "headers": {
-          "material": "Material",
-          "price": "Preço",
-          "netContent": "Conteúdo Líquido",
-          "unit": "Unidade",
-          "usedQuantity": "Quantidade Usada",
-          "costPerLot": "Custo por Lote"
-        }
-      }
-    },
-    "unitDropdown": {
-      "defaultLabel": "Peça",
+    "unit": {
+      "label": "Unidade",
       "options": {
         "pieza": "Peça",
         "gramo": "Grama",
         "litro": "Litro"
       }
     },
-    "donations": {
+    "deleteTitle": "Excluir insumo",
+    "addButton": "Adicionar insumo",
+    "total": "Total dos Insumos: $",
+    "help": {
+      "title": "Informações sobre os insumos utilizados na produção.",
+      "material": "Nome do insumo ou matéria-prima a ser utilizada.",
+      "price": "Custo unitário do insumo na moeda selecionada.",
+      "netContent": "Quantidade do insumo que constitui o seu conteúdo líquido (por unidade de medida).",
+      "usedQuantity": "Quantidade do insumo utilizada em cada lote de produção.",
+      "costPerLot": "Custo resultante por lote, calculado a partir do preço, conteúdo líquido e quantidade utilizada."
+    }
+  },
+  "expenseTable": {
+    "title": "Despesas da Planta",
+    "headers": {
+      "description": "Descrição",
+      "monthlyCost": "Custo Mensal"
+    },
+    "placeholders": {
+      "description": "ex. Aluguel, eletricidade, água, internet",
+      "monthlyCost": "ex. 1200 (valor na moeda selecionada)"
+    },
+    "deleteTitle": "Excluir despesa",
+    "addButton": "Adicionar despesa da planta",
+    "total": "Total: $",
+    "help": {
+      "title": "Insira as despesas fixas associadas à planta.",
+      "description": "Descrição da despesa, por exemplo, aluguel ou serviços públicos.",
+      "monthlyCost": "Custo mensal atribuído à despesa indicada."
+    }
+  },
+  "dailyExpenses": {
+    "title": "Despesas Diárias e Operação",
+    "workDays": "Dias de Trabalho",
+    "costPerDay": "Custo por Dia",
+    "dailyAvg": "Média de Vendas Diárias (unidades)",
+    "localCost": "Custo Local",
+    "productionCost": "Custo de Produção",
+    "totalCost": "Custo Total",
+    "workDaysPlaceholder": "Número de dias úteis no mês (ex. 30)",
+    "dailyAvgPlaceholder": "Número de unidades vendidas por dia (ex. 20)",
+    "localCostPlaceholder": "Custo extra por unidade (ex. 2,02)",
+    "productionCostPlaceholder": "Custo de produção por unidade (ex. 10,50)",
+    "help": {
+      "title": "Insira as informações diárias de operação e os custos associados.",
+      "workDays": "Número de dias que a planta opera durante o período.",
+      "costPerDay": "Custo diário calculado com base nas despesas da planta e nos dias úteis.",
+      "dailyAvg": "Média de unidades produzidas ou vendidas por dia.",
+      "localCost": "Custo adicional por unidade devido a despesas locais extras.",
+      "productionCost": "Custo total de produção sem incluir o custo local extra.",
+      "totalCost": "Soma do custo de produção e das despesas fixas da planta."
+    }
+  },
+  "graficaPastel": {
+    "insumosTitle": "Insumos",
+    "plantExpensesTitle": "Despesas da Planta"
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados."
+  },
+  "graphSection": {
+    "title": "Gráfico de Custos"
+  },
+  "nav": {
+    "brand": "EasyBiz",
+    "links": {
+      "home": "Início",
+      "products": "Produtos",
+      "contact": "Contato"
+    },
+    "languageSwitcher": {
+      "label": "Idioma",
+      "options": {
+        "es": "Espanhol",
+        "en": "Inglês",
+        "fr": "Francês",
+        "pt": "Português"
+      }
+    }
+  },
+  "pdfReportButton": {
+    "generate": "Gerar PDF",
+    "watermark": "Feito na EasyBiz"
+  },
+  "productInfoForm": {
+    "currency": "Moeda",
+    "productName": "Nome do Produto",
+    "productNamePlaceholder": "ex. Shampoo Natural, Sabonete Artesanal",
+    "producedUnits": "Unidades Produzidas",
+    "producedUnitsPlaceholder": "Quantidade de produtos que você irá produzir",
+    "timeFrame": "Prazo de Tempo",
+    "timeFrameOptions": {
+      "week": "1 Semana",
+      "twoWeeks": "2 Semanas",
+      "month": "1 Mês"
+    },
+    "gainPercentage": "Margem de Lucro (%)",
+    "gainPercentagePlaceholder": "ex. 15 (Percentual de lucro desejado)",
+    "help": {
+      "currency": "Selecione a moeda na qual os custos e preços serão expressos.",
+      "productName": "Nome identificador do produto.",
+      "producedUnits": "Número total de unidades que serão produzidas no período selecionado.",
+      "timeFrame": "Escolha o período de produção (por exemplo, semana, duas semanas, mês).",
+      "gainPercentage": "Percentual adicional que será adicionado ao custo para definir o preço de venda."
+    }
+  },
+  "resultsSection": {
+    "header": {
+      "product": "Produto",
+      "resultsSummary": "Resumo dos Resultados",
+      "help": {
+        "product": "Este título mostra o nome do produto para identificar o relatório.",
+        "resultsSummary": "Resumo breve dos resultados obtidos na análise."
+      }
+    },
+    "cards": {
+      "costElaboration": "Custo de Elaboração",
+      "fixedCostTotal": "Custo Total da Planta",
+      "dailyUnitCost": "Custo Unitário Diário",
+      "performance": "Desempenho (unidades)",
+      "saleUnitCost": "Custo Unitário de Venda",
+      "gainPercentage": "% Lucro",
+      "salePrice": "Preço de Venda",
+      "gain": "Lucro",
+      "help": {
+        "costElaboration": "Custo associado à elaboração, calculado a partir do custo dos insumos.",
+        "fixedCostTotal": "Custo fixo total baseado nas despesas da planta durante o período.",
+        "dailyUnitCost": "Custo diário por unidade, considerando o custo fixo e o número de dias de operação.",
+        "performance": "Número total de unidades produzidas no período selecionado.",
+        "saleUnitCost": "Custo base por unidade de venda, que inclui custos diretos e despesas adicionais.",
+        "gainPercentage": "Percentual adicional aplicado ao custo para determinar o lucro.",
+        "salePrice": "Preço final de venda por unidade, resultante do custo unitário mais o lucro.",
+        "gain": "Diferença entre o preço de venda e o custo base por unidade."
+      }
+    },
+    "plantCostDetails": {
+      "title": "Detalhes dos Custos da Planta",
+      "description": "Descrição",
+      "monthlyCost": "Custo Mensal",
+      "help": {
+        "title": "Informações detalhadas sobre as despesas fixas da planta.",
+        "description": "Descrição da despesa, por exemplo, aluguel, serviços públicos, etc.",
+        "monthlyCost": "Custo mensal atribuído a cada item de despesa da planta."
+      }
+    },
+    "suppliesDetails": {
+      "title": "Detalhes dos Insumos",
+      "headers": {
+        "material": "Material",
+        "price": "Preço",
+        "netContent": "Conteúdo Líquido",
+        "unit": "Unidade",
+        "usedQuantity": "Quantidade Usada",
+        "costPerLot": "Custo por Lote"
+      },
+      "help": {
+        "title": "Informações detalhadas sobre os insumos utilizados na produção.",
+        "material": "Nome do insumo ou matéria-prima.",
+        "price": "Preço do insumo na moeda selecionada.",
+        "netContent": "Quantidade que representa o conteúdo líquido do insumo.",
+        "unit": "Unidade de medida do insumo, por exemplo, peça, kg, litro.",
+        "usedQuantity": "Quantidade do insumo utilizada para a produção no período.",
+        "costPerLot": "Custo resultante por lote, calculado a partir do preço, conteúdo líquido e quantidade utilizada."
+      }
+    }
+  },
+  "unitDropdown": {
+    "defaultLabel": "Peça",
+    "options": {
+      "pieza": "Peça",
+      "gramo": "Grama",
+      "litro": "Litro"
+    }
+  },
+  "donations": {
     "donate": "Doar",
     "title": "Apoie-nos",
     "patreonButton": "Apoie-nos no Patreon",
     "koFiAlt": "Compre um café no ko-fi.com"
   }
-  }
-  
+}
+

@@ -1,30 +1,42 @@
 {
-    "EasyBiz": {
+  "EasyBiz": {
       "loading": "Chargement...",
       "graphTitle": "Graphique",
-      "supplyDetail": "Détail des fournitures",
-      "plantExpenses": "Dépenses de l'usine",
-      "dailyExpenses": "Dépenses quotidiennes / Autres"
+      "supplyDetail": "Détail des Fournitures",
+      "plantExpenses": "Dépenses d'usine",
+      "dailyExpenses": "Dépenses Quotidiennes et Autres"
+    },
+    "donationModal": {
+      "message": "Aidez-nous à continuer de nous améliorer en faisant un don pour notre projet !"
+    },
+    "productInfoSection": {
+      "title": "Informations sur le Produit"
+    },
+    "operationalData": {
+      "title": "Données Opérationnelles"
+    },
+    "resultsAndGraphs": {
+      "title": "Résultats et Graphiques"
     },
     "supplyTable": {
       "title": "Fournitures",
       "headers": {
-        "material": "Matériau",
+        "material": "Matériel",
         "price": "Prix",
-        "netContent": "Contenu net",
-        "usedQuantity": "Quantité utilisée",
-        "costPerLot": "Coût par lot"
+        "netContent": "Contenu Net",
+        "usedQuantity": "Quantité Utilisée",
+        "costPerLot": "Coût par Lot"
       },
       "placeholders": {
         "material": "Nom du matériau (ex. Acier)",
         "price": "Prix par unité (ex. 100)",
         "netContent": "Valeur du contenu net",
         "usedQuantity": {
-          "pieza": "Quantité utilisée (pièces, ex. 100)",
-          "gramo": "Quantité utilisée (grammes, ex. 500)",
-          "litro": "Quantité utilisée (litres, ex. 1.5)"
+          "pieza": "Quantité utilisée (ex. 100 pièces)",
+          "gramo": "Quantité utilisée (ex. 500 grammes)",
+          "litro": "Quantité utilisée (ex. 1,5 litres)"
         },
-        "costPerLot": "Coût par lot"
+        "costPerLot": "Coût calculé par lot"
       },
       "unit": {
         "label": "Unité",
@@ -36,13 +48,21 @@
       },
       "deleteTitle": "Supprimer la fourniture",
       "addButton": "Ajouter une fourniture",
-      "total": "Total des fournitures : $"
+      "total": "Total des fournitures: $",
+      "help": {
+        "title": "Informations sur les fournitures utilisées dans la production.",
+        "material": "Nom de la fourniture ou de la matière première à utiliser.",
+        "price": "Coût unitaire de la fourniture dans la devise sélectionnée.",
+        "netContent": "Quantité de la fourniture constituant son contenu net (par unité de mesure).",
+        "usedQuantity": "Quantité de la fourniture utilisée dans chaque lot de production.",
+        "costPerLot": "Coût par lot résultant, calculé à partir du prix, du contenu net et de la quantité utilisée."
+      }
     },
     "expenseTable": {
-      "title": "Coûts de l'usine",
+      "title": "Dépenses d'usine",
       "headers": {
         "description": "Description",
-        "monthlyCost": "Coût mensuel"
+        "monthlyCost": "Coût Mensuel"
       },
       "placeholders": {
         "description": "ex. Loyer, électricité, eau, internet",
@@ -50,30 +70,44 @@
       },
       "deleteTitle": "Supprimer la dépense",
       "addButton": "Ajouter une dépense d'usine",
-      "total": "Total : $"
+      "total": "Total: $",
+      "help": {
+        "title": "Entrez les coûts fixes associés à l'usine.",
+        "description": "Description de la dépense, par exemple, loyer ou services publics.",
+        "monthlyCost": "Coût mensuel attribué à la dépense indiquée."
+      }
     },
     "dailyExpenses": {
-      "title": "Dépenses quotidiennes / Autres",
+      "title": "Dépenses Quotidiennes et Opération",
       "workDays": "Jours de travail",
-      "costPerDay": "Coût par jour",
+      "costPerDay": "Coût par Jour",
       "dailyAvg": "Moyenne des ventes quotidiennes (unités)",
-      "localCost": "Coût local",
-      "productionCost": "Coût de production",
-      "totalCost": "Coût total",
-      "workDaysPlaceholder": "Nombre de jours travaillés dans le mois (ex. 30)",
+      "localCost": "Coût Local",
+      "productionCost": "Coût de Production",
+      "totalCost": "Coût Total",
+      "workDaysPlaceholder": "Nombre de jours ouvrables dans le mois (ex. 30)",
       "dailyAvgPlaceholder": "Nombre d'unités vendues par jour (ex. 20)",
-      "localCostPlaceholder": "Coût supplémentaire par unité (ex. 2.02)",
-      "productionCostPlaceholder": "Coût de production par unité (ex. 10.50)"
+      "localCostPlaceholder": "Coût supplémentaire par unité (ex. 2,02)",
+      "productionCostPlaceholder": "Coût de production par unité (ex. 10,50)",
+      "help": {
+        "title": "Entrez les informations quotidiennes sur l'opération et les coûts associés.",
+        "workDays": "Nombre de jours pendant lesquels l'usine fonctionne durant la période.",
+        "costPerDay": "Coût journalier calculé en fonction des dépenses de l'usine et des jours ouvrables.",
+        "dailyAvg": "Moyenne des unités produites ou vendues par jour.",
+        "localCost": "Coût additionnel par unité dû aux dépenses locales supplémentaires.",
+        "productionCost": "Coût total de production hors coût local supplémentaire.",
+        "totalCost": "Somme du coût de production et des dépenses fixes de l'usine."
+      }
     },
     "graficaPastel": {
       "insumosTitle": "Fournitures",
-      "plantExpensesTitle": "Dépenses de l'usine"
+      "plantExpensesTitle": "Dépenses d'usine"
     },
     "footer": {
       "rights": "Tous droits réservés."
     },
     "graphSection": {
-      "title": "Graphique des coûts"
+      "title": "Graphique des Coûts"
     },
     "nav": {
       "brand": "EasyBiz",
@@ -85,10 +119,10 @@
       "languageSwitcher": {
         "label": "Langue",
         "options": {
-          "es": "Español",
-          "en": "English",
+          "es": "Espagnol",
+          "en": "Anglais",
           "fr": "Français",
-          "pt": "Português"
+          "pt": "Portugais"
         }
       }
     },
@@ -98,48 +132,83 @@
     },
     "productInfoForm": {
       "currency": "Devise",
-      "productName": "Nom du produit",
+      "productName": "Nom du Produit",
       "productNamePlaceholder": "ex. Shampooing Naturel, Savon Artisanal",
-      "producedUnits": "Unités produites",
-      "producedUnitsPlaceholder": "Nombre de produits à fabriquer",
+      "producedUnits": "Unités Produites",
+      "producedUnitsPlaceholder": "Nombre de produits que vous fabriquerez",
       "timeFrame": "Période",
       "timeFrameOptions": {
         "week": "1 Semaine",
         "twoWeeks": "2 Semaines",
         "month": "1 Mois"
       },
-      "gainPercentage": "Marge bénéficiaire (%)",
-      "gainPercentagePlaceholder": "ex. 15 (pourcentage de bénéfice souhaité)"
+      "gainPercentage": "Marge de Profit (%)",
+      "gainPercentagePlaceholder": "ex. 15 (Pourcentage de profit souhaité)",
+      "help": {
+        "currency": "Sélectionnez la devise dans laquelle les coûts et les prix seront exprimés.",
+        "productName": "Nom identifiant du produit.",
+        "producedUnits": "Nombre total d'unités qui seront produites pendant la période sélectionnée.",
+        "timeFrame": "Choisissez la période de production (par exemple, semaine, deux semaines, mois).",
+        "gainPercentage": "Pourcentage supplémentaire ajouté au coût pour définir le prix de vente."
+      }
     },
     "resultsSection": {
       "header": {
         "product": "Produit",
-        "resultsSummary": "Résumé des résultats"
+        "resultsSummary": "Résumé des Résultats",
+        "help": {
+          "product": "Ce titre affiche le nom du produit pour identifier le rapport.",
+          "resultsSummary": "Bref résumé des résultats obtenus lors de l'analyse."
+        }
       },
       "cards": {
-        "costElaboration": "Coût de production",
-        "fixedCostTotal": "Coût total de l'usine",
-        "dailyUnitCost": "Coût unitaire quotidien",
+        "costElaboration": "Coût d'Élaboration",
+        "fixedCostTotal": "Coût Total de l'Usine",
+        "dailyUnitCost": "Coût Unitaire Quotidien",
         "performance": "Performance (unités)",
-        "saleUnitCost": "Coût unitaire",
-        "gainPercentage": "% Bénéfice",
-        "salePrice": "Prix de vente",
-        "gain": "Bénéfice"
+        "saleUnitCost": "Coût Unitaire de Vente",
+        "gainPercentage": "% Profit",
+        "salePrice": "Prix de Vente",
+        "gain": "Profit",
+        "help": {
+          "costElaboration": "Coût associé à l'élaboration, calculé à partir du coût des fournitures.",
+          "fixedCostTotal": "Coût fixe total basé sur les dépenses de l'usine pendant la période.",
+          "dailyUnitCost": "Coût journalier par unité, en tenant compte du coût fixe et du nombre de jours d'opération.",
+          "performance": "Nombre total d'unités produites pendant la période sélectionnée.",
+          "saleUnitCost": "Coût de base par unité de vente, incluant les coûts directs et les frais supplémentaires.",
+          "gainPercentage": "Pourcentage supplémentaire appliqué au coût pour déterminer le profit.",
+          "salePrice": "Prix final de vente par unité, résultant du coût unitaire plus le profit.",
+          "gain": "Différence entre le prix de vente et le coût de base par unité."
+        }
       },
       "plantCostDetails": {
-        "title": "Détails des coûts de l'usine",
+        "title": "Détails des Coûts d'Usine",
         "description": "Description",
-        "monthlyCost": "Coût mensuel"
+        "monthlyCost": "Coût Mensuel",
+        "help": {
+          "title": "Informations détaillées sur les dépenses fixes de l'usine.",
+          "description": "Description de la dépense, par exemple, loyer, services publics, etc.",
+          "monthlyCost": "Coût mensuel attribué à chaque poste de dépense d'usine."
+        }
       },
       "suppliesDetails": {
-        "title": "Détails des fournitures",
+        "title": "Détails des Fournitures",
         "headers": {
-          "material": "Matériau",
+          "material": "Matériel",
           "price": "Prix",
-          "netContent": "Contenu net",
+          "netContent": "Contenu Net",
           "unit": "Unité",
-          "usedQuantity": "Quantité utilisée",
-          "costPerLot": "Coût par lot"
+          "usedQuantity": "Quantité Utilisée",
+          "costPerLot": "Coût par Lot"
+        },
+        "help": {
+          "title": "Informations détaillées sur les fournitures utilisées dans la production.",
+          "material": "Nom de la fourniture ou de la matière première.",
+          "price": "Prix de la fourniture dans la devise sélectionnée.",
+          "netContent": "Quantité représentant le contenu net de la fourniture.",
+          "unit": "Unité de mesure de la fourniture, par exemple, pièce, kg, litre.",
+          "usedQuantity": "Quantité de la fourniture utilisée pour la production pendant la période.",
+          "costPerLot": "Coût par lot résultant, calculé à partir du prix, du contenu net et de la quantité utilisée."
         }
       }
     },
@@ -151,11 +220,10 @@
         "litro": "Litre"
       }
     },
-      "donations": {
-        "donate": "Faire un don",
-        "title": "Soutenez-nous",
-        "patreonButton": "Soutenez-nous sur Patreon",
-        "koFiAlt": "Achetez-nous un café sur ko-fi.com"
-      }  
+    "donations": {
+      "donate": "Faire un don",
+      "title": "Soutenez-nous",
+      "patreonButton": "Soutenez-nous sur Patreon",
+      "koFiAlt": "Achetez un café sur ko-fi.com"
+    }
   }
-  
