@@ -88,7 +88,7 @@ const DailyExpenses = ({
 
       {/* Input para promedio diario */}
       <motion.div whileHover={{ scale: 1.02 }} className="mb-6">
-        <label className="text-sm font-bold text-green-700 mb-2 block flex items-center gap-2">
+        <label className="text-sm font-bold text-green-700 mb-2  flex items-center gap-2">
           <Boxes size={18} className="text-green-500" />
           {dailyAvgLabel}
           <HelpTooltip text={help.dailyAvg} />

@@ -155,7 +155,7 @@ const OpenCalc = () => {
           {/* Sección 1: Información del Producto */}
           <section className="bg-white p-4 md:p-6 rounded-xl shadow-sm">
             <DonationModal message="¡Ayúdanos a seguir mejorando donando para nuestro proyecto!" />
-            <h2 className="text-xl md:text-2xl font-bold mb-4 text-green-700">
+            <h2 className="text-xl md:text-2xl font-bold mb-4 text-green-700 text-center">
               {translations.productInfoSection.title}
             </h2>
             <ProductInfoForm
@@ -174,13 +174,13 @@ const OpenCalc = () => {
 
           {/* Sección 2: Entrada de Datos Operativos */}
           <section className="bg-white p-4 md:p-6 rounded-xl shadow-sm space-y-6">
-            <h2 className="text-xl md:text-2xl font-bold mb-4 text-green-700">
+            <h2 className="text-xl md:text-2xl font-bold mb-4 text-green-700 text-center">
               {translations.operationalData.title}
             </h2>
             <div className="space-y-4">
               {/* Insumos */}
               <div>
-                <h3 className="text-lg md:text-xl font-semibold mb-2 text-green-700">
+                <h3 className="text-lg md:text-xl font-semibold mb-2 text-green-700 text-center">
                   {translations.supplyTable.title}
                 </h3>
                 <SupplyTable
@@ -195,7 +195,7 @@ const OpenCalc = () => {
               <div className="flex flex-col md:flex-row gap-6">
                 {/* Gastos de Planta */}
                 <div className="w-full md:w-1/2">
-                  <h3 className="text-lg md:text-xl font-semibold mb-2 text-green-700">
+                  <h3 className="text-lg md:text-xl font-semibold mb-2 text-green-700 text-center">
                     {translations.expenseTable.title}
                   </h3>
                   <ExpenseTable
@@ -208,7 +208,7 @@ const OpenCalc = () => {
                 </div>
                 {/* Gastos Diarios y Operación */}
                 <div className="w-full md:w-1/2">
-                  <h3 className="text-lg md:text-xl font-semibold mb-2 text-green-700">
+                  <h3 className="text-lg md:text-xl font-semibold mb-2 text-green-700 text-center">
                     {translations.dailyExpenses.title}
                   </h3>
                   <DailyExpenses
@@ -230,7 +230,7 @@ const OpenCalc = () => {
 
           {/* Sección 3: Resultados y Visualización */}
           <section id="pdf-container" className="bg-white p-4 md:p-6 rounded-xl shadow-sm">
-            <h2 className="text-xl md:text-2xl font-bold mb-4 text-green-700">
+            <h2 className="text-xl md:text-2xl font-bold mb-4 text-green-700 text-center">
               {translations.resultsAndGraphs.title}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

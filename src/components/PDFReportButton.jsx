@@ -27,13 +27,13 @@ const PDFReportButton = ({ results, productName, currency, gastosPlanta, insumos
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
     try {
-      // Capture the container as an image using html2canvas
+      // Capturamos el contenedor como imagen usando html2canvas
       const canvas = await html2canvas(input, {
-        scale: 1.5, // Increase resolution for better image quality
-        width: 1600, // Match the width set above
-        height: input.scrollHeight, // Capture the full height of the content
-        windowWidth: 1600, // Simulate a wide browser window
-        useCORS: true, // Allow loading of external images (e.g., in charts) if present
+        scale: 1.5, // Aumenta la resolución para mayor calidad
+        width: 1600, // Coincide con el ancho establecido
+        height: input.scrollHeight, // Captura la altura completa del contenido
+        windowWidth: 1600, // Simula una ventana ancha del navegador
+        useCORS: true, // Permite cargar imágenes externas si las hay
       });
       
       const imgData = canvas.toDataURL('image/png');
@@ -48,21 +48,28 @@ const PDFReportButton = ({ results, productName, currency, gastosPlanta, insumos
       const ratio = canvas.width / pdfWidth;
       // Altura en píxeles del canvas que equivale a una página PDF
       const pageCanvasHeight = pdfPageHeight * ratio;
-      // Offset hacia arriba (24px) para evitar cortar filas a la mitad
-      const upwardOffset = 24;
+      // Offset de 24px que se va a eliminar de la parte inferior de cada página
+      const offsetToRemove = 24;
 
       // Calcula la cantidad total de páginas (se descuenta el offset en las páginas posteriores)
-      let totalPages = Math.ceil((canvas.height - upwardOffset) / pageCanvasHeight);
+      let totalPages = Math.ceil((canvas.height - offsetToRemove) / pageCanvasHeight);
       
+      // Variables fijas para la posición de la marca de agua
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+
       for (let page = 0; page < totalPages; page++) {
+        // Calcular la posición de origen para cada página
         let yOrigin = page * pageCanvasHeight;
         if (page > 0) {
-          yOrigin = page * pageCanvasHeight - upwardOffset;
+          yOrigin = page * pageCanvasHeight - offsetToRemove;
         }
         let segmentCanvasHeight = Math.min(
-          pageCanvasHeight + (page > 0 ? upwardOffset : 0),
+          pageCanvasHeight + (page > 0 ? offsetToRemove : 0),
           canvas.height - yOrigin
         );
+        // Eliminar los últimos 24px de cada página
+        segmentCanvasHeight = segmentCanvasHeight - offsetToRemove;
         
         // Crear un canvas temporal para el segmento actual
         const canvasPage = document.createElement('canvas');
@@ -86,19 +93,17 @@ const PDFReportButton = ({ results, productName, currency, gastosPlanta, insumos
         
         if (page > 0) pdf.addPage();
         pdf.addImage(pageImgData, 'PNG', margin, margin, pdfWidth, segmentPdfHeight);
+
+        // Agregar la marca de agua en la misma posición en cada página
+        pdf.setFontSize(10);
+        pdf.setTextColor(150, 150, 150);
+        pdf.text(
+          messages.pdfReportButton.watermark,
+          pageWidth - margin,
+          pageHeight - margin,
+          { align: 'right' }
+        );
       }
-      
-      // Agregar watermark en la esquina inferior derecha de la última página
-      const pageWidth = pdf.internal.pageSize.getWidth();
-      const pageHeight = pdf.internal.pageSize.getHeight();
-      pdf.setFontSize(10);
-      pdf.setTextColor(150, 150, 150);
-      pdf.text(
-        messages.pdfReportButton.watermark,
-        pageWidth - margin,
-        pageHeight - margin,
-        { align: 'right' }
-      );
       
       pdf.save(`${productName || 'report'}.pdf`);
     } catch (error) {
