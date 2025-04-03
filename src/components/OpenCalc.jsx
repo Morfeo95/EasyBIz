@@ -7,6 +7,7 @@ import ExpenseTable from './ExpenseTable';
 import DailyExpenses from './DailyExpenses';
 import useTranslations from '../hooks/useTranslations';
 import DonationModal from './DonationModal';
+import { Analytics } from "@vercel/analytics/react"
 
 // Helper function to convert values to numbers, returning a default value if conversion fails
 const toNumber = (value, defaultValue = 0) => parseFloat(value) || defaultValue;
@@ -154,6 +155,7 @@ const OpenCalc = () => {
         <>
           {/* Sección 1: Información del Producto */}
           <section className="bg-white p-4 md:p-6 rounded-xl shadow-sm">
+            <Analytics />
             <DonationModal message="¡Ayúdanos a seguir mejorando donando para nuestro proyecto!" />
             <h2 className="text-xl md:text-2xl font-bold mb-4 text-green-700 text-center">
               {translations.productInfoSection.title}
