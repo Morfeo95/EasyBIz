@@ -21,6 +21,12 @@ const ExpenseTable = ({ gastos, onChange, onAdd, onDelete, totalPlantCost }) => 
     setOpenAccordion((prev) => ({ ...prev, [index]: !prev[index] }));
   };
 
+  // Maneja agregar un gasto y cierra los acordeones abiertos en móvil
+  const handleAdd = () => {
+    onAdd();
+    setOpenAccordion({});
+  };
+
   return (
     <motion.div
       className="bg-white bg-opacity-80 backdrop-blur-md border border-green-200 p-5 rounded-xl shadow-md"
@@ -178,7 +184,7 @@ const ExpenseTable = ({ gastos, onChange, onAdd, onDelete, totalPlantCost }) => 
         transition={{ delay: 0.3 }}
       >
         <Button
-          onClick={onAdd}
+          onClick={handleAdd}
           className="flex items-center gap-2 text-green-700 hover:text-green-500"
         >
           <CirclePlus className="w-6 h-6" />
