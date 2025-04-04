@@ -201,7 +201,8 @@
         "netContent": "Conteúdo Líquido",
         "unit": "Unidade",
         "usedQuantity": "Quantidade Usada",
-        "costPerLot": "Custo por Lote"
+        "costPerLot": "Custo por Lote",
+        "costPerPice":"Custo por peça"
       },
       "help": {
         "title": "Informações detalhadas sobre os insumos utilizados na produção.",

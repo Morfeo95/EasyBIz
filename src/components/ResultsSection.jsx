@@ -255,22 +255,22 @@ const ResultsSection = ({ results, gastosPlanta, insumos, productName, currency 
                   className="border-b last:border-0 block md:table-row bg-gray-50 md:bg-transparent p-3 md:p-0 rounded-lg md:rounded-none shadow-md md:shadow-none mb-3 md:mb-0"
                 >
                   <td className="p-2 block md:table-cell">
-                    <span className="md:hidden font-semibold text-gray-600">Material:</span> {insumo.material || '-'}
+                    <span className="md:hidden font-semibold text-gray-600">{suppliesDetails.headers.material}:</span> {insumo.material || '-'}
                   </td>
                   <td className="p-2 block md:table-cell">
-                    <span className="md:hidden font-semibold text-gray-600">Price:</span> {currency} {parseFloat(insumo.price || 0).toFixed(2)}
+                    <span className="md:hidden font-semibold text-gray-600">{suppliesDetails.headers.price}:</span> {currency} {parseFloat(insumo.price || 0).toFixed(2)}
                   </td>
                   <td className="p-2 block md:table-cell">
-                    <span className="md:hidden font-semibold text-gray-600">Net Content:</span> {insumo.netContent || '-'}
+                    <span className="md:hidden font-semibold text-gray-600">{suppliesDetails.headers.netContent}:</span> {insumo.netContent || '-'}
                   </td>
                   <td className="p-2 block md:table-cell">
-                    <span className="md:hidden font-semibold text-gray-600">Unit:</span> {insumo.netContentUnit || '-'}
+                    <span className="md:hidden font-semibold text-gray-600">{suppliesDetails.headers.unit}:</span> {insumo.netContentUnit || '-'}
                   </td>
                   <td className="p-2 block md:table-cell">
-                    <span className="md:hidden font-semibold text-gray-600">Used Quantity:</span> {insumo.usedQuantity || '-'}
+                    <span className="md:hidden font-semibold text-gray-600">{suppliesDetails.headers.usedQuantity}:</span> {insumo.usedQuantity || '-'}
                   </td>
                   <td className="p-2 block md:table-cell">
-                    <span className="md:hidden font-semibold text-gray-600">Cost per Piece:</span> {currency} {parseFloat(insumo.costPerPiece || 0).toFixed(2)}
+                    <span className="md:hidden font-semibold text-gray-600">{suppliesDetails.headers.costPerPice}:</span> {currency} {parseFloat(insumo.costPerPiece || 0).toFixed(2)}
                   </td>
                 </tr>
               ))}
@@ -286,12 +286,12 @@ const ResultsSection = ({ results, gastosPlanta, insumos, productName, currency 
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.2 }}
             >
-              <p><strong>Material:</strong> {insumo.material || '-'}</p>
-              <p><strong>Price:</strong> {currency} {parseFloat(insumo.price || 0).toFixed(2)}</p>
-              <p><strong>Net Content:</strong> {insumo.netContent || '-'}</p>
-              <p><strong>Unit:</strong> {insumo.netContentUnit || '-'}</p>
-              <p><strong>Used Quantity:</strong> {insumo.usedQuantity || '-'}</p>
-              <p><strong>Cost per Piece:</strong> {currency} {parseFloat(insumo.costPerPiece || 0).toFixed(2)}</p>
+              <p><strong>{suppliesDetails.headers.material}:</strong> {insumo.material || '-'}</p>
+              <p><strong>{suppliesDetails.headers.price}:</strong> {currency} {parseFloat(insumo.price || 0).toFixed(2)}</p>
+              <p><strong>{suppliesDetails.headers.netContent}:</strong> {insumo.netContent || '-'}</p>
+              <p><strong>{suppliesDetails.headers.unit}:</strong> {insumo.netContentUnit || '-'}</p>
+              <p><strong>{suppliesDetails.headers.usedQuantity}:</strong> {insumo.usedQuantity || '-'}</p>
+              <p><strong>{suppliesDetails.headers.costPerPice}:</strong> {currency} {parseFloat(insumo.costPerPiece || 0).toFixed(2)}</p>
             </motion.div>
           ))}
         </div>

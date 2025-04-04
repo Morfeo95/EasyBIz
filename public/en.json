@@ -202,7 +202,8 @@
           "netContent": "Net Content",
           "unit": "Unit",
           "usedQuantity": "Used Quantity",
-          "costPerLot": "Cost per Lot"
+          "costPerLot": "Cost per Lot",
+          "costPerPice":"Cost per pice"
         },
         "help": {
           "title": "Detailed information about the supplies used in production.",

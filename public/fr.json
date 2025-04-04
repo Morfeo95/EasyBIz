@@ -201,7 +201,9 @@
           "netContent": "Contenu Net",
           "unit": "Unité",
           "usedQuantity": "Quantité Utilisée",
-          "costPerLot": "Coût par Lot"
+          "costPerLot": "Coût par Lot",
+          "costPerPice":"Coût par pièce"
+
         },
         "help": {
           "title": "Informations détaillées sur les fournitures utilisées dans la production.",
