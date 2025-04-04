@@ -179,7 +179,7 @@ const SupplyTable = ({
                   ? { height: 'auto', opacity: 1 }
                   : { height: 0, opacity: 0 }
               }
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
               className="overflow-hidden"
             >
               <div className="p-3 space-y-4">
