@@ -25,7 +25,8 @@
         "price": "Prix",
         "netContent": "Contenu Net",
         "usedQuantity": "Quantité Utilisée",
-        "costPerLot": "Coût par Lot"
+        "costPerLot": "Coût par Lot",
+        "tableMobile":"Ajouter les détails de l’intrant"
       },
       "placeholders": {
         "material": "Nom du matériau (ex. Acier)",
@@ -62,7 +63,8 @@
       "title": "Dépenses d'usine",
       "headers": {
         "description": "Description",
-        "monthlyCost": "Coût Mensuel"
+        "monthlyCost": "Coût Mensuel",
+        "tableMobile": "Ajouter les détails de la dépense"
       },
       "placeholders": {
         "description": "ex. Loyer, électricité, eau, internet",

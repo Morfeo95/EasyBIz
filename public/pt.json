@@ -25,7 +25,8 @@
       "price": "Preço",
       "netContent": "Conteúdo Líquido",
       "usedQuantity": "Quantidade Utilizada",
-      "costPerLot": "Custo por Lote"
+      "costPerLot": "Custo por Lote",
+      "tableMobile":"Adicionar detalhes do insumo"
     },
     "placeholders": {
       "material": "Nome do material (ex. Aço)",
@@ -62,7 +63,8 @@
     "title": "Despesas da Planta",
     "headers": {
       "description": "Descrição",
-      "monthlyCost": "Custo Mensal"
+      "monthlyCost": "Custo Mensal",
+      "tableMobile": "Adicionar detalhes da despesa"
     },
     "placeholders": {
       "description": "ex. Aluguel, eletricidade, água, internet",

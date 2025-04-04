@@ -25,7 +25,8 @@
         "price": "Price",
         "netContent": "Net Content",
         "usedQuantity": "Used Quantity",
-        "costPerLot": "Cost per Lot"
+        "costPerLot": "Cost per Lot",
+        "tableMobile":"Add input detail"
       },
       "placeholders": {
         "material": "Material name (e.g. Steel)",
@@ -62,7 +63,9 @@
       "title": "Plant Expenses",
       "headers": {
         "description": "Description",
-        "monthlyCost": "Monthly Cost"
+        "monthlyCost": "Monthly Cost",
+        "tableMobile": "Add expense details"
+
       },
       "placeholders": {
         "description": "e.g. Rent, electricity, water, internet",

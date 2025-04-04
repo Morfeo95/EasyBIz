@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { DollarSign, CirclePlus, Trash2, FileText } from "lucide-react";
 import TextInput from "./TextInput";
@@ -8,10 +8,18 @@ import useTranslations from "../hooks/useTranslations";
 import HelpTooltip from "./HelpTooltip";
 
 const ExpenseTable = ({ gastos, onChange, onAdd, onDelete, totalPlantCost }) => {
+  // Llamamos a todos los Hooks de forma incondicional
   const translations = useTranslations();
+  const [openAccordion, setOpenAccordion] = useState({});
+
+  // Verificamos traducciones después de invocar los Hooks
   if (!translations) return null;
 
   const { expenseTable } = translations;
+
+  const toggleAccordion = (index) => {
+    setOpenAccordion((prev) => ({ ...prev, [index]: !prev[index] }));
+  };
 
   return (
     <motion.div
@@ -26,9 +34,9 @@ const ExpenseTable = ({ gastos, onChange, onAdd, onDelete, totalPlantCost }) => 
         {expenseTable.title}
         <HelpTooltip text={expenseTable.help.title} />
       </h3>
-      
-      {/* Tabla de gastos */}
-      <div className="overflow-x-auto">
+
+      {/* Vista de tabla para pantallas medianas en adelante */}
+      <div className="hidden md:block overflow-x-auto">
         <table className="min-w-full text-left text-sm font-raleway border-separate border-spacing-0">
           <thead className="hidden md:table-header-group">
             <motion.tr
@@ -36,17 +44,16 @@ const ExpenseTable = ({ gastos, onChange, onAdd, onDelete, totalPlantCost }) => 
               whileHover={{ scale: 1.01 }}
             >
               <th className="block md:table-cell p-3 w-1/2 font-semibold">
-              <div className='flex'>
-              {expenseTable.headers.description}
-              <HelpTooltip text={expenseTable.help.description} />
-              </div>
+                <div className="flex">
+                  {expenseTable.headers.description}
+                  <HelpTooltip text={expenseTable.help.description} />
+                </div>
               </th>
               <th className="block md:table-cell p-3 w-1/2 font-semibold">
-              <div className='flex'>
-              {expenseTable.headers.monthlyCost}
-              <HelpTooltip text={expenseTable.help.monthlyCost} />
-              </div>
-
+                <div className="flex">
+                  {expenseTable.headers.monthlyCost}
+                  <HelpTooltip text={expenseTable.help.monthlyCost} />
+                </div>
               </th>
               <th className="block md:table-cell p-3 w-10"></th>
             </motion.tr>
@@ -76,7 +83,9 @@ const ExpenseTable = ({ gastos, onChange, onAdd, onDelete, totalPlantCost }) => 
                   <NumberInput
                     value={gasto.monthlyCost}
                     placeholder={expenseTable.placeholders.monthlyCost}
-                    onChange={(e) => onChange(index, "monthlyCost", e.target.value)}
+                    onChange={(e) =>
+                      onChange(index, "monthlyCost", e.target.value)
+                    }
                     Icon={DollarSign}
                   />
                 </td>
@@ -95,7 +104,72 @@ const ExpenseTable = ({ gastos, onChange, onAdd, onDelete, totalPlantCost }) => 
           </tbody>
         </table>
       </div>
-      
+
+      {/* Vista de acordeón para móviles */}
+      <div className="block md:hidden">
+        {gastos.map((gasto, index) => (
+          <div key={index} className="mb-4 border rounded-lg overflow-hidden">
+            {/* Cabecera del acordeón */}
+            <motion.div
+              onClick={() => toggleAccordion(index)}
+              className="bg-green-100 p-3 flex justify-between items-center cursor-pointer"
+              whileHover={{ scale: 1.01 }}
+            >
+              <span className="font-bold">
+                {gasto.name || expenseTable.headers.tableMobile}
+              </span>
+              <span className="text-green-700">
+                {gasto.monthlyCost ? `$${gasto.monthlyCost}` : ""}
+              </span>
+            </motion.div>
+            {/* Contenido del acordeón */}
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={
+                openAccordion[index]
+                  ? { height: "auto", opacity: 1 }
+                  : { height: 0, opacity: 0 }
+              }
+              transition={{ duration: 0.3 }}
+              className="overflow-hidden"
+            >
+              <div className="p-3 space-y-4">
+                <label className="mb-1 text-base font-bold font-montserrat text-green-700">
+                  {expenseTable.headers.description}
+                </label>
+                <TextInput
+                  value={gasto.name}
+                  placeholder={expenseTable.placeholders.description}
+                  onChange={(e) => onChange(index, "name", e.target.value)}
+                  className="w-full"
+                />
+                <label className="mb-1 text-base font-bold font-montserrat text-green-700">
+                  {expenseTable.headers.monthlyCost}
+                </label>
+                <NumberInput
+                  value={gasto.monthlyCost}
+                  placeholder={expenseTable.placeholders.monthlyCost}
+                  onChange={(e) =>
+                    onChange(index, "monthlyCost", e.target.value)
+                  }
+                  Icon={DollarSign}
+                />
+                <div className="text-center">
+                  <motion.button
+                    onClick={() => onDelete(index)}
+                    className="text-gray-500 hover:text-red-500"
+                    title={expenseTable.deleteTitle}
+                    whileHover={{ scale: 1.2 }}
+                  >
+                    <Trash2 className="w-5 h-5 inline" />
+                  </motion.button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        ))}
+      </div>
+
       {/* Botón para agregar nuevo gasto y total acumulado */}
       <motion.div
         className="mt-4 flex flex-col md:flex-row justify-between items-center"
@@ -103,7 +177,7 @@ const ExpenseTable = ({ gastos, onChange, onAdd, onDelete, totalPlantCost }) => 
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
       >
-        <Button 
+        <Button
           onClick={onAdd}
           className="flex items-center gap-2 text-green-700 hover:text-green-500"
         >

@@ -25,7 +25,8 @@
       "price": "Precio",
       "netContent": "Contenido Neto",
       "usedQuantity": "Cantidad Usada",
-      "costPerLot": "Costo por Lote"
+      "costPerLot": "Costo por Lote",
+      "tableMobile":"Añadir detalles del insumo"
     },
     "placeholders": {
       "material": "Nombre del material (ej. Acero)",
@@ -62,7 +63,8 @@
     "title": "Gastos de Planta",
     "headers": {
       "description": "Descripción",
-      "monthlyCost": "Costo Mensual"
+      "monthlyCost": "Costo Mensual",
+      "tableMobile": "Añadir detalles del gasto"
     },
     "placeholders": {
       "description": "Ej. Renta del local, electricidad, agua, internet",
