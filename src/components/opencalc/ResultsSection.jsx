@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FileText, DollarSign, Layers } from 'lucide-react';
 import PDFReportButton from './PDFReportButton';
-import useTranslations from '../hooks/useTranslations';
+import useTranslations from '../../hooks/useTranslations';
 import HelpTooltip from './HelpTooltip';
 
 const ResultsSection = ({ results, gastosPlanta, insumos, productName, currency }) => {

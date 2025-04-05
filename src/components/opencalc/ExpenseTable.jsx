@@ -4,7 +4,7 @@ import { DollarSign, CirclePlus, Trash2, FileText } from "lucide-react";
 import TextInput from "./TextInput";
 import NumberInput from "./NumberInput";
 import Button from "./Button";
-import useTranslations from "../hooks/useTranslations";
+import useTranslations from "../../hooks/useTranslations";
 import HelpTooltip from "./HelpTooltip";
 
 const ExpenseTable = ({ gastos, onChange, onAdd, onDelete, totalPlantCost }) => {

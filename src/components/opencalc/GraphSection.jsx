@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion'; // Import motion for animations
 import { PieChart } from 'lucide-react'; // Import PieChart icon from lucide-react
 import GraficaPastel from './GraficaPastel'; // Import custom pie chart component
-import useTranslations from '../hooks/useTranslations'; // Custom hook for handling translations
+import useTranslations from '../../hooks/useTranslations'; // Custom hook for handling translations
 
 // Define the GraphSection component with props for chart data
 const GraphSection = ({ 

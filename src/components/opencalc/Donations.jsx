@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion"; // Import motion for animations
 import { Heart } from "lucide-react"; // Import Heart icon from lucide-react
-import useTranslations from "../hooks/useTranslations"; // Custom hook for handling translations
+import useTranslations from "../../hooks/useTranslations"; // Custom hook for handling translations
 
 // Define the Donations component
 const Donations = () => {

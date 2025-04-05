@@ -5,7 +5,7 @@ import ResultsSection from './ResultsSection';
 import SupplyTable from './SupplyTable';
 import ExpenseTable from './ExpenseTable';
 import DailyExpenses from './DailyExpenses';
-import useTranslations from '../hooks/useTranslations';
+import useTranslations from '../../hooks/useTranslations';
 import DonationModal from './DonationModal';
 import { Analytics } from "@vercel/analytics/react"
 

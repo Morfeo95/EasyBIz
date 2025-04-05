@@ -1,7 +1,7 @@
 import React from 'react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
-import useTranslations from '../hooks/useTranslations';
+import useTranslations from '../../hooks/useTranslations';
 
 const PDFReportButton = ({ results, productName, currency, gastosPlanta, insumos }) => {
   const messages = useTranslations();

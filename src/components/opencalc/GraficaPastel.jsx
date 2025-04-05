@@ -3,7 +3,7 @@ import { Pie } from "react-chartjs-2";
 import { Chart, ArcElement, Tooltip, Legend } from "chart.js";
 import { ChartPie, Factory } from "lucide-react";
 import { motion } from "framer-motion";
-import useTranslations from "../hooks/useTranslations";
+import useTranslations from "../../hooks/useTranslations";
 
 Chart.register(ArcElement, Tooltip, Legend);
 

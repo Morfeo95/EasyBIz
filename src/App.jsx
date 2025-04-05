@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import Nav from "./components/Nav"
-import Footer from "./components/Footer"
-import OpenCalc from './components/OpenCalc'
+import Nav from "./components/interface/Nav"
+import Footer from "./components/interface/Footer"
+import OpenCalc from './components/opencalc/OpenCalc'
 
 function App() {
   const [count, setCount] = useState(0)

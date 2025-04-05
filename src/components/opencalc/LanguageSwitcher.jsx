@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { useLanguage } from '../context/LanguageContext';
-import useTranslations from '../hooks/useTranslations';
+import { useLanguage } from '../../context/LanguageContext';
+import useTranslations from '../../hooks/useTranslations';
 
 const LanguageSwitcher = () => {
   const { language, setLanguage } = useLanguage();

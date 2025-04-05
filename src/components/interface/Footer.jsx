@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion"; // Import motion for animations
 import { HeartHandshake } from "lucide-react"; // Import HeartHandshake icon from lucide-react
-import useTranslations from "../hooks/useTranslations"; // Custom hook for handling translations
+import useTranslations from "../../hooks/useTranslations"; // Custom hook for handling translations
 
 // Define the Footer component
 const Footer = () => {

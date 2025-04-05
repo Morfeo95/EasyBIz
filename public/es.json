@@ -115,7 +115,7 @@
     "brand": "EasyBiz",
     "links": {
       "home": "Inicio",
-      "products": "Productos",
+      "Login": "Iniciar Sesion",
       "contact": "Contacto"
     },
     "languageSwitcher": {

@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Calendar, DollarSign, LineChart, Boxes } from "lucide-react";
 import NumberInput from "./NumberInput";
-import useTranslations from "../hooks/useTranslations";
+import useTranslations from "../../hooks/useTranslations";
 import HelpTooltip from "./HelpTooltip";
 
 const DailyExpenses = ({

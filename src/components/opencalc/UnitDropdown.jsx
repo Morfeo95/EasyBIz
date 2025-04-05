@@ -3,7 +3,7 @@ import { useState } from "react";
 // Import a Label component for displaying the current selection
 import Label from "./Label";
 // Import custom hook for translations
-import useTranslations from '../hooks/useTranslations';
+import useTranslations from '../../hooks/useTranslations';
 
 // Define the UnitDropdown component which accepts the current unit and an onSelect callback as props
 const UnitDropdown = ({ unit, onSelect }) => {

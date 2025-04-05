@@ -3,7 +3,7 @@ import TextInput from './TextInput';
 import NumberInput from './NumberInput';
 import { Boxes, DollarSign, Percent, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
-import useTranslations from '../hooks/useTranslations';
+import useTranslations from '../../hooks/useTranslations';
 import HelpTooltip from './HelpTooltip';
 
 const ProductInfoForm = ({
