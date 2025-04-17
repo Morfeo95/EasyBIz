@@ -24,7 +24,7 @@ const AuthModal = ({ onClose }) => {
       {isLogin ? (
         <>
           <h2 className="text-2xl font-bold mb-4">Iniciar Sesión</h2>
-          <LoginForm />
+          <LoginForm onClose={onClose} />
           <p className="mt-4 text-center">
             ¿No tienes cuenta?{' '}
             <span
@@ -38,7 +38,7 @@ const AuthModal = ({ onClose }) => {
       ) : (
         <>
           <h2 className="text-2xl font-bold mb-4">Registrarse</h2>
-          <RegisterForm />
+          <RegisterForm onClose={onClose} />
           <p className="mt-4 text-center">
             ¿Ya tienes cuenta?{' '}
             <span

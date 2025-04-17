@@ -1,6 +1,8 @@
+// src/components/Nav.jsx
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BarChart3, Heart, X } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import useTranslations from "../../hooks/useTranslations";
 import LanguageSwitcher from "../opencalc/LanguageSwitcher";
 import Donations from "../opencalc/Donations";
@@ -8,6 +10,7 @@ import AuthModal from "../login/AuthModal";
 
 const Nav = () => {
   const messages = useTranslations();
+  const navigate = useNavigate();
   const [showDonations, setShowDonations] = useState(false);
   const [showAuth, setShowAuth] = useState(false);
 
@@ -20,17 +23,22 @@ const Nav = () => {
     <>
       <nav className="bg-gray-100 border-b border-green-200 p-6 shadow-lg rounded-lg">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center">
+          {/* Logo + Brand */}
           <motion.div
-            className="flex items-center space-x-2 mb-4 sm:mb-0"
+            className="mb-4 sm:mb-0"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <BarChart3 className="text-green-700" size={32} />
-            <h1 className="text-3xl font-bold text-green-700 hover:text-green-500 transition-colors duration-300">
-              {brand}
-            </h1>
+            <Link to="/" className="flex items-center space-x-2">
+              <BarChart3 className="text-green-700" size={32} />
+              <h1 className="text-3xl font-bold text-green-700 hover:text-green-500 transition-colors duration-300">
+                {brand}
+              </h1>
+            </Link>
           </motion.div>
+
+          {/* Links */}
           <ul className="flex flex-wrap justify-center space-x-6 font-medium text-lg mb-4 sm:mb-0">
             {Object.entries(links).map(([key, label]) => (
               <motion.li
@@ -38,14 +46,26 @@ const Nav = () => {
                 className="cursor-pointer transition-transform duration-200 hover:text-green-500"
                 whileHover={{ scale: 1.1, opacity: 0.8 }}
                 onClick={() => {
-                  if (key === "Login") setShowAuth(true);
-                  // Otras acciones para otros links...
+                  if (key === "Login") {
+                    setShowAuth(true);
+                  } else if (key === "home") {
+                    navigate("/");
+                  } else if (key === "Profile"){
+                    navigate("/profile")
+                  }
+                  
+                  else {
+                    // Si tienes rutas para otros links, ajusta aquí:
+                    navigate(`/${key.toLowerCase()}`);
+                  }
                 }}
               >
                 {label}
               </motion.li>
             ))}
           </ul>
+
+          {/* Language + Donate */}
           <div className="flex items-center gap-4">
             <LanguageSwitcher />
             <motion.button
@@ -60,7 +80,7 @@ const Nav = () => {
         </div>
       </nav>
 
-      {/* Modal de Donations */}
+      {/* Modal Donations */}
       <AnimatePresence>
         {showDonations && (
           <motion.div
@@ -89,7 +109,7 @@ const Nav = () => {
         )}
       </AnimatePresence>
 
-      {/* Modal de Autenticación (Login/Registro) */}
+      {/* Modal Auth */}
       <AnimatePresence>
         {showAuth && (
           <motion.div

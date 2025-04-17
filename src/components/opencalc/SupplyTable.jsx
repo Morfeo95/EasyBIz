@@ -59,15 +59,16 @@ const SupplyTable = ({
         <table className="min-w-full text-left text-sm font-raleway border-separate border-spacing-0">
           <thead className="hidden md:table-header-group">
             <motion.tr className="bg-green-100 text-green-800" whileHover={{ scale: 1.001 }}>
-              {Object.values(supplyTable.headers).map((header, idx) => (
-                <th key={idx} className="p-3 font-semibold">
+            {Object.entries(supplyTable.headers)
+              .filter(([key]) => key !== 'tableMobile') // ← Filtra esa clave
+              .map(([key, header], idx) => (
+                <th key={key} className="p-3 font-semibold">
                   <div className="flex">
                     {header}
-                    <HelpTooltip text={supplyTable.help[Object.keys(supplyTable.headers)[idx]]} />
+                    <HelpTooltip text={supplyTable.help[key]} />
                   </div>
                 </th>
-              ))}
-              <th className="p-3 w-10"></th>
+            ))}
             </motion.tr>
           </thead>
 

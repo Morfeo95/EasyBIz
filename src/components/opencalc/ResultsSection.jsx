@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+// src/components/ResultsSection.jsx
+import React, { useState, useContext } from 'react';
 import { motion } from 'framer-motion';
 import { FileText, DollarSign, Layers } from 'lucide-react';
 import PDFReportButton from './PDFReportButton';
 import useTranslations from '../../hooks/useTranslations';
 import HelpTooltip from './HelpTooltip';
+import { AuthContext } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
-const ResultsSection = ({ results, gastosPlanta, insumos, productName, currency }) => {
+const ResultsSection = ({ results, gastosPlanta, insumos, productName, currency, onSave }) => {
   const [isPlantCostOpen, setIsPlantCostOpen] = useState(false);
   const messages = useTranslations();
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   if (!messages)
     return <div className="text-green-700 font-bold">Cargando...</div>;
@@ -38,6 +43,19 @@ const ResultsSection = ({ results, gastosPlanta, insumos, productName, currency 
     { label: cards.gain, value: gain, showCurrency: true, help: cards.help.gain }
   ];
 
+  // Función para manejar el clic en "Guardar estimado"
+  const handleSaveClick = () => {
+    // Si el usuario no está autenticado, redirige a /login
+    if (!user) {
+      navigate("/login");
+      return;
+    }
+    // Caso contrario, ejecuta la función onSave pasada por props
+    if (onSave) {
+      onSave();
+    }
+  };
+
   return (
     <motion.div
       className="bg-white bg-opacity-70 backdrop-blur-sm border border-green-200 p-6 rounded-2xl shadow-xl"
@@ -45,8 +63,8 @@ const ResultsSection = ({ results, gastosPlanta, insumos, productName, currency 
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      {/* Botón para generar reporte en PDF */}
-      <div className="flex justify-end mb-4">
+      {/* Botón para generar reporte en PDF y guardar estimado */}
+      <div className="flex gap-3 justify-end mb-4">
         <PDFReportButton
           results={results}
           productName={productName}
@@ -54,6 +72,15 @@ const ResultsSection = ({ results, gastosPlanta, insumos, productName, currency 
           gastosPlanta={gastosPlanta}
           insumos={insumos}
         />
+
+        <button
+          type="button"
+          onClick={handleSaveClick}
+          data-html2canvas-ignore="true"
+          className="text-green-700 font-bold underline bg-transparent border-0 cursor-pointer focus:outline-none no-print"
+        >
+          Guardar estimado
+        </button>
       </div>
 
       {/* Encabezado de la sección */}
@@ -124,8 +151,8 @@ const ResultsSection = ({ results, gastosPlanta, insumos, productName, currency 
                 </th>
                 <th className="p-2 items-center gap-1">
                   <div className='flex'>
-                  {plantCostDetails.monthlyCost}
-                  <HelpTooltip text={plantCostDetails.help.monthlyCost} />
+                    {plantCostDetails.monthlyCost}
+                    <HelpTooltip text={plantCostDetails.help.monthlyCost} />
                   </div>
                 </th>
               </tr>
@@ -206,15 +233,15 @@ const ResultsSection = ({ results, gastosPlanta, insumos, productName, currency 
           <HelpTooltip text={suppliesDetails.help.title} />
         </motion.h4>
         {/* Vista para pantallas grandes: Tabla */}
-        <div className="overflow-x-auto  hidden md:block">
+        <div className="overflow-x-auto hidden md:block">
           <table className="w-full text-left text-sm font-raleway border border-green-200 rounded-lg">
             <thead className="bg-green-100">
               <tr>
                 <th className="p-2 items-center gap-1">
-                 <div className='flex'>
-                 {suppliesDetails.headers.material}
-                 <HelpTooltip text={suppliesDetails.help.material} />
-                 </div>
+                  <div className='flex'>
+                    {suppliesDetails.headers.material}
+                    <HelpTooltip text={suppliesDetails.help.material} />
+                  </div>
                 </th>
                 <th className="p-2 items-center gap-1">
                   <div className="inline-flex">

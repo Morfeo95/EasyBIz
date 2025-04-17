@@ -1,23 +1,33 @@
-export const loginService = async (email, password) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (email === 'test@test.com' && password === '123456') {
-        resolve({ email });
-      } else {
-        reject(new Error('Credenciales inválidas'));
-      }
-    }, 1000);
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8080";
+
+export const registerService = async (name, email, password) => {
+  const resp = await fetch(`${API_BASE}/usuarios`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, email, password }),
   });
+
+  if (!resp.ok) {
+    const err = await resp.json().catch(() => ({}));
+    throw new Error(err.message || "Error al registrar el usuario");
+  }
+
+  // Devuelve { id, token } para que quien llame maneje el almacenamiento
+  return await resp.json();
 };
 
-export const registerService = async (email, password) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (email && password) {
-        resolve({ email });
-      } else {
-        reject(new Error('Error en el registro'));
-      }
-    }, 1000);
+export const loginService = async (email, password) => {
+  const resp = await fetch(`${API_BASE}/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password }),
   });
+
+  if (!resp.ok) {
+    const err = await resp.json().catch(() => ({}));
+    throw new Error(err.message || "Credenciales inválidas");
+  }
+
+  // Devuelve { id, token } para que quien llame maneje el almacenamiento
+  return await resp.json();
 };

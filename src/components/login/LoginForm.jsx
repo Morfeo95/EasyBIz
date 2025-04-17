@@ -1,20 +1,25 @@
-import React, { useState, useContext } from 'react';
-import { AuthContext } from './AuthContext';
+// src/components/LoginForm.jsx
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
-const LoginForm = () => {
+const LoginForm = ({ onClose }) => {
   const { login } = useContext(AuthContext);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+
+  const handleLogin = async (e) => {
     e.preventDefault();
     setError(null);
     setLoading(true);
     try {
       await login(email, password);
-      // Aquí podrías redirigir al usuario o actualizar la UI según convenga
+      onClose?.();
+      navigate("/profile");
     } catch (err) {
       setError(err.message);
     } finally {
@@ -23,40 +28,36 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleLogin} className="max-w-96 flex flex-col gap-4">
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-          Correo electrónico:
-        </label>
+        <label htmlFor="login-email">Correo electrónico:</label>
         <input
           type="email"
-          id="email"
-          className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
+          id="login-email"
+          className="w-full border px-3 py-2 rounded"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
       </div>
       <div>
-        <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-          Contraseña:
-        </label>
+        <label htmlFor="login-password">Contraseña:</label>
         <input
           type="password"
-          id="password"
-          className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
+          id="login-password"
+          className="w-full border px-3 py-2 rounded"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
       </div>
-      {error && <p className="text-red-500 text-sm">{error}</p>}
+      {error && <p className="text-red-500">{error}</p>}
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-500 transition duration-200"
+        className="bg-green-600 text-white py-2 rounded hover:bg-green-500"
       >
-        {loading ? 'Ingresando...' : 'Ingresar'}
+        {loading ? "Ingresando..." : "Ingresar"}
       </button>
     </form>
   );

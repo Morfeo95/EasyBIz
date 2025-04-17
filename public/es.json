@@ -116,7 +116,7 @@
     "links": {
       "home": "Inicio",
       "Login": "Iniciar Sesion",
-      "contact": "Contacto"
+      "Profile": "Perfil"
     },
     "languageSwitcher": {
       "label": "Idioma",

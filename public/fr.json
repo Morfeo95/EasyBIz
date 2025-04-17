@@ -116,7 +116,7 @@
       "links": {
         "home": "Accueil",
         "Login": "Connexion",
-        "contact": "Contact"
+        "Profile": "Profil"
       },
       "languageSwitcher": {
         "label": "Langue",
