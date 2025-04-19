@@ -43,7 +43,8 @@ const ProductInfoForm = ({
           onChange={(e) => onCurrencyChange(e.target.value)}
           className="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-400 transition-all duration-200 shadow-sm"
         >
-          {["MXN", "USD", "CAD", "EUR", "ARS", "BRL", "CLP", "COP"].map((curr) => (
+          {["MXN", "USD", "CAD", "EUR", "ARS", "BRL", "CLP", "COP", "PEN", "BOB", "PYG", "UYU", "GTQ", "HNL", "NIO", "CRC", "DOP", "VES"]
+            .map((curr) => (
             <option key={curr} value={curr}>
               {curr}
             </option>
