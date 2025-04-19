@@ -1,0 +1,61 @@
+{
+    "tabs": {
+      "dashboard": "Dashboard",
+      "businesses": "Businesses",
+      "products": "Products",
+      "estimados": "Estimates",
+      "settings": "Settings"
+    },
+    "modal": {
+      "addBusiness": "Add Business",
+      "editBusiness": "Edit Business",
+      "addProduct": "Add Product"
+    },
+    "loading": "Loading...",
+    "errorFallback": "An error occurred:",
+    "sidebar": {
+  "brand": "EasyBizTools",
+  "dashboard": "Dashboard",
+  "businesses": "Businesses",
+  "products": "Products",
+  "estimados": "Estimates",
+  "settings": "Settings"
+},
+"ajustesSection": {
+    "title": "User Settings",
+    "labels": {
+      "nombre": "Name",
+      "email": "Email",
+      "password": "Password"
+    },
+    "placeholders": {
+      "nombre": "Enter your name",
+      "email": "Enter your email",
+      "password": "New password (optional)"
+    },
+    "button": "Save Changes"
+  },
+  "businessForm": {
+    "placeholders": {
+      "name": "Business name"
+    },
+    "upload": {
+      "uploading": "Uploading...",
+      "label": "Upload image"
+    },
+    "preview": "Preview",
+    "button": "Create business"
+  },
+  "businessList": {
+    "noItems": "You have no registered businesses yet.",
+    "buttons": {
+      "edit": "Edit",
+      "delete": "Delete"
+    }
+  },
+  "businessSection": {
+    "title": "Your businesses",
+    "button": "Add"
+  }
+  }
+  

@@ -9,7 +9,7 @@ const GraphSection = ({
   insumos, // Array of input materials data for the pie chart
   gastosPlanta // Array of plant expenses data for the pie chart
 }) => {
-  // Fetch translation messages using custom hook
+  // Fetch translation messages.opencalc using custom hook
   const messages = useTranslations();
   // Show loading message if translations aren't available yet
   if (!messages) return <div className="text-green-700 font-bold">Loading...</div>;
@@ -26,7 +26,7 @@ const GraphSection = ({
       {/* Section title with icon */}
       <h3 className="text-xl font-montserrat font-bold text-green-700 flex items-center gap-2 mb-4">
         <PieChart size={24} className="text-green-500" /> {/* PieChart icon */}
-        {messages.graphSection.title} {/* Translated title from messages */}
+        {messages.opencalc.graphSection.title} {/* Translated title from messages.opencalc */}
       </h3>
       {/* Container for the pie chart component */}
       <div className="flex items-center justify-center">

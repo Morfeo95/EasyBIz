@@ -1,0 +1,27 @@
+{
+    "cta": {
+      "title": "Ready to optimize your business?",
+      "descriptionPrefix": "Start now with",
+      "descriptionSuffix": "and take your finances to the next level.",
+      "button": "Start with OpenCalc"
+    },
+    "features": [
+    {
+      "title": "User Registration",
+      "desc": "Create an account and access all your tools from a single place."
+    },
+    {
+      "title": "Edit Old Quotes",
+      "desc": "Modify your past quotes thanks to API integration."
+    },
+    {
+      "title": "Business & Product Management",
+      "desc": "Manage your businesses, products, and quotes from your profile."
+    }
+  ],
+  "hero": {
+    "title": "Welcome to EasyBiz",
+    "description": "Grow your business with simple, powerful tools: register products, calculate costs, and generate reports instantly."
+  }
+  }
+  

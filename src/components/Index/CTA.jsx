@@ -3,9 +3,23 @@ import React from "react";
 import { motion } from "framer-motion";
 import { BarChart3 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import useTranslations from "../../hooks/useTranslations";
 
 const CTA = () => {
+  const messages = useTranslations();
   const navigate = useNavigate();
+
+  // Guardia de carga
+  if (!messages?.index?.cta) {
+    return <div>Loading...</div>;
+  }
+
+  const {
+    title,
+    descriptionPrefix,
+    descriptionSuffix,
+    button
+  } = messages.index.cta;
 
   return (
     <motion.section
@@ -21,7 +35,7 @@ const CTA = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        ¿Listo para optimizar tu negocio?
+        {title}
       </motion.h2>
 
       <motion.p
@@ -30,7 +44,7 @@ const CTA = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.6 }}
       >
-        Empieza ahora con <strong>OpenCalc</strong> y lleva tus finanzas al siguiente nivel.
+        {descriptionPrefix} <strong>OpenCalc</strong> {descriptionSuffix}
       </motion.p>
 
       <motion.button
@@ -46,7 +60,7 @@ const CTA = () => {
         >
           <BarChart3 size={24} />
         </motion.div>
-        Empieza con OpenCalc
+        {button}
       </motion.button>
     </motion.section>
   );

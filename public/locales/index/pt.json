@@ -1,0 +1,27 @@
+{
+    "cta": {
+      "title": "Pronto para otimizar seu negócio?",
+      "descriptionPrefix": "Comece agora com o",
+      "descriptionSuffix": "e leve suas finanças para o próximo nível.",
+      "button": "Comece com o OpenCalc"
+    },
+    "features": [
+    {
+      "title": "Registro de usuários",
+      "desc": "Crie uma conta e acesse todas as suas ferramentas em um só lugar."
+    },
+    {
+      "title": "Edição de cotações antigas",
+      "desc": "Modifique suas cotações anteriores graças à integração com a API."
+    },
+    {
+      "title": "Gestão de negócios e produtos",
+      "desc": "Gerencie seus negócios, produtos e cotações a partir do seu perfil."
+    }
+  ],
+  "hero": {
+    "title": "Bem-vindo ao EasyBiz",
+    "description": "Faça seu negócio crescer com ferramentas simples e poderosas: registre produtos, calcule custos e gere relatórios instantaneamente."
+  }
+  }
+  

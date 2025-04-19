@@ -14,10 +14,12 @@ const Nav = () => {
   const [showDonations, setShowDonations] = useState(false);
   const [showAuth, setShowAuth] = useState(false);
 
-  if (!messages) return <div>Loading...</div>;
+  if (!messages || !messages.opencalc || !messages.opencalc.nav) {
+    return <div>Loading translations...</div>;
+  }
 
-  const { brand, links } = messages.nav;
-  const { donate } = messages.donations;
+  const { brand, links } = messages.opencalc.nav;
+  const { donate } = messages.opencalc.donations;
 
   return (
     <>

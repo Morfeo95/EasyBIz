@@ -1,22 +1,28 @@
+// src/components/Hero.jsx
 import React from "react";
 import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
+import useTranslations from "../../hooks/useTranslations";
 
-// Animación de aparición por letra (hero animado 👇)
+// Animación de aparición por letra
 const textVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: (i) => ({
     opacity: 1,
     y: 0,
-    transition: {
-      delay: i * 0.04,
-      duration: 0.5,
-    },
+    transition: { delay: i * 0.04, duration: 0.5 }
   }),
 };
 
 const Hero = () => {
-  const title = "Bienvenido a EasyBiz";
+  const messages = useTranslations();
+
+  // Guardia de carga
+  if (!messages?.index?.hero) {
+    return <div>Loading...</div>;
+  }
+
+  const { title, description } = messages.index.hero;
 
   return (
     <motion.section
@@ -57,7 +63,7 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.7, duration: 0.6 }}
       >
-        Haz crecer tu negocio con herramientas simples y potentes: registra productos, calcula costos y genera reportes al instante.
+        {description}
       </motion.p>
     </motion.section>
   );

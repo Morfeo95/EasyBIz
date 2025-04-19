@@ -3,26 +3,32 @@ import { useLanguage } from '../../context/LanguageContext';
 import useTranslations from '../../hooks/useTranslations';
 
 const LanguageSwitcher = () => {
+  // 1) Hooks siempre en el mismo orden
   const { language, setLanguage } = useLanguage();
   const messages = useTranslations();
 
-  // Mover useEffect antes del return condicional
+  // 2) Effect sin retornos de JSX, solo lógica de idioma
   useEffect(() => {
-    // Asegurarse de que ya se han cargado las traducciones
-    if (!messages) return;
-    const { languageSwitcher } = messages.nav;
+    // Si aún no cargo translations, salgo
+    if (!messages?.opencalc?.nav) return;
+
+    const { languageSwitcher } = messages.opencalc.nav;
     const browserLang = navigator.language.slice(0, 2);
+
     if (!language && languageSwitcher.options[browserLang]) {
       setLanguage(browserLang);
     } else if (!language) {
-      setLanguage('en');
+      setLanguage('es');  // o 'en' según prefieras
     }
   }, [messages, language, setLanguage]);
 
-  // Ahora se puede condicionar el render sin alterar el orden de los Hooks
-  if (!messages) return <div>Loading...</div>;
+  // 3) Guardia de render segura
+  if (!messages?.opencalc?.nav) {
+    return <div>Loading translations...</div>;
+  }
 
-  const { languageSwitcher } = messages.nav;
+  // 4) Ya podemos destructurar con garantía
+  const { languageSwitcher } = messages.opencalc.nav;
 
   const handleLanguageChange = (e) => {
     setLanguage(e.target.value);
@@ -38,9 +44,9 @@ const LanguageSwitcher = () => {
         onChange={handleLanguageChange}
         className="p-1 border border-green-300 rounded"
       >
-        {Object.keys(languageSwitcher.options).map((lang) => (
+        {Object.entries(languageSwitcher.options).map(([lang, label]) => (
           <option key={lang} value={lang}>
-            {languageSwitcher.options[lang]}
+            {label}
           </option>
         ))}
       </select>

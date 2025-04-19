@@ -1,24 +1,38 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Home, Briefcase, Box, FileText, Settings } from 'lucide-react';
-
-const navItems = [
-  { key: 'dashboard', label: 'Dashboard', icon: Home },
-  { key: 'businesses', label: 'Negocios', icon: Briefcase },
-  { key: 'products', label: 'Productos', icon: Box },
-  { key: 'estimados', label: 'Estimados', icon: FileText },
-  { key: 'settings', label: 'Ajustes', icon: Settings },
-];
+import useTranslations from '../../hooks/useTranslations'; // Ajusta la ruta según tu estructura
 
 const Sidebar = ({ active, onSelect }) => {
+  // Cargar todas las traducciones
+  const messages = useTranslations();
+
+  // Esperar a que lleguen las traducciones del módulo 'perfil'
+  if (!messages?.perfil?.sidebar) {
+    return <div>Loading...</div>;
+  }
+
+  // Extraer las etiquetas desde el JSON cargado
+  const labels = messages.perfil.sidebar;
+
+  // Solo definimos key e icon; el label viene de translations
+  const navItems = [
+    { key: 'dashboard', icon: Home },
+    { key: 'businesses', icon: Briefcase },
+    { key: 'products', icon: Box },
+    { key: 'estimados', icon: FileText },
+    { key: 'settings', icon: Settings },
+  ];
+
   return (
     <div className="hidden md:block fixed h-screen">
       <div className="w-64 h-full bg-white/70 backdrop-blur-lg shadow-xl border-r border-gray-200 flex flex-col">
         <div className="p-6 text-2xl font-bold text-green-700 tracking-tight">
-          EasyBiz<span className="text-green-500">Tools</span>
+          {/* Marca desde translations */}
+          {labels.brand}
         </div>
         <nav className="mt-4 flex flex-col gap-1 px-2">
-          {navItems.map(({ key, label, icon: Icon }) => {
+          {navItems.map(({ key, icon: Icon }) => {
             const isActive = active === key;
             return (
               <motion.button
@@ -41,7 +55,8 @@ const Sidebar = ({ active, onSelect }) => {
                       : 'text-gray-500 group-hover:text-green-600'
                   }`}
                 />
-                <span>{label}</span>
+                {/* Label desde translations */}
+                <span>{labels[key]}</span>
                 {isActive && (
                   <motion.span
                     layoutId="activeSidebar"

@@ -4,8 +4,9 @@ import { DollarSign, Boxes, CirclePlus, Trash2 } from 'lucide-react';
 import TextInput from './TextInput';
 import NumberInput from './NumberInput';
 import Button from './Button';
-import useTranslations from '../../hooks/useTranslations';
 import HelpTooltip from './HelpTooltip';
+import useTranslations from '../../hooks/useTranslations';
+
 
 const SupplyTable = ({
   insumos,
@@ -16,13 +17,13 @@ const SupplyTable = ({
   timeFrame,
 }) => {
   // Llamamos a todos los Hooks de forma incondicional
-  const translations = useTranslations();
+  const messages = useTranslations();
   const [openAccordion, setOpenAccordion] = useState({});
 
   // Verificar traducciones después de llamar a los Hooks
-  if (!translations) return null;
+  if (!messages) return null;
 
-  const { supplyTable, productInfoForm } = translations;
+  const { supplyTable, productInfoForm } = messages.opencalc;
   const timeFrameText = productInfoForm.timeFrameOptions[timeFrame] || timeFrame;
 
   // Función para determinar placeholder según la unidad seleccionada

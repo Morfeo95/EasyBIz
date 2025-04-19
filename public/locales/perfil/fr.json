@@ -1,0 +1,62 @@
+{
+    "tabs": {
+      "dashboard": "Tableau de bord",
+      "businesses": "Entreprises",
+      "products": "Produits",
+      "estimados": "Estimations",
+      "settings": "Paramètres"
+    },
+    "modal": {
+      "addBusiness": "Ajouter une entreprise",
+      "editBusiness": "Modifier l'entreprise",
+      "addProduct": "Ajouter un produit"
+    },
+    "loading": "Chargement...",
+    "errorFallback": "Une erreur est survenue :",
+    "sidebar": {
+  "brand": "EasyBizTools",
+  "dashboard": "Tableau de bord",
+  "businesses": "Entreprises",
+  "products": "Produits",
+  "estimados": "Devis",
+  "settings": "Paramètres"
+},
+"ajustesSection": {
+    "title": "Paramètres de l'utilisateur",
+    "labels": {
+      "nombre": "Nom",
+      "email": "Email",
+      "password": "Mot de passe"
+    },
+    "placeholders": {
+      "nombre": "Entrez votre nom",
+      "email": "Entrez votre email",
+      "password": "Nouveau mot de passe (facultatif)"
+    },
+    "button": "Enregistrer"
+  },
+  "businessForm": {
+    "placeholders": {
+      "name": "Nom de l'entreprise"
+    },
+    "upload": {
+      "uploading": "Téléchargement...",
+      "label": "Télécharger l'image"
+    },
+    "preview": "Aperçu",
+    "button": "Créer l'entreprise"
+  },
+  "businessList": {
+    "noItems": "Vous n'avez pas encore d'entreprises enregistrées.",
+    "buttons": {
+      "edit": "Modifier",
+      "delete": "Supprimer"
+    }
+  },
+
+  "businessSection": {
+    "title": "Vos entreprises",
+    "button": "Ajouter"
+  }
+  }
+  

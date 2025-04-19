@@ -22,7 +22,7 @@ const ProductInfoForm = ({
   if (!messages)
     return <div className="text-green-700 font-bold">Cargando...</div>;
 
-  const { productInfoForm } = messages;
+  const { productInfoForm } = messages.opencalc;
 
   return (
     <motion.div

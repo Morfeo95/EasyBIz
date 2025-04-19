@@ -37,7 +37,7 @@ const DailyExpenses = ({
     localCostPlaceholder,
     productionCostPlaceholder,
     help,
-  } = messages.dailyExpenses;
+  } = messages.opencalc.dailyExpenses;
 
   return (
     <motion.div

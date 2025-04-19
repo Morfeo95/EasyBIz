@@ -13,7 +13,7 @@ const GraficaPastel = ({ insumos, gastosPlanta }) => {
     return <div className="text-green-700 font-bold">Cargando...</div>;
 
   // Desestructuración de títulos traducidos
-  const { insumosTitle, plantExpensesTitle } = messages.graficaPastel;
+  const { insumosTitle, plantExpensesTitle } = messages.opencalc.graficaPastel;
 
   // Datos para el gráfico de insumos
   const insumosLabels = insumos.map((item) => item.material || "Sin nombre");

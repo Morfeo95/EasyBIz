@@ -1,0 +1,27 @@
+{
+    "cta": {
+      "title": "¿Listo para optimizar tu negocio?",
+      "descriptionPrefix": "Empieza ahora con",
+      "descriptionSuffix": "y lleva tus finanzas al siguiente nivel.",
+      "button": "Empieza con OpenCalc"
+    },
+    "features": [
+    {
+      "title": "Registro de usuarios",
+      "desc": "Crea una cuenta y accede a todas tus herramientas desde un solo lugar."
+    },
+    {
+      "title": "Edición de cotizaciones antiguas",
+      "desc": "Modifica tus cotizaciones previas gracias a la integración con la API."
+    },
+    {
+      "title": "Gestión de negocios y productos",
+      "desc": "Administra tus negocios, productos y cotizaciones desde tu perfil."
+    }
+  ],
+  "hero": {
+    "title": "Bienvenido a EasyBiz",
+    "description": "Haz crecer tu negocio con herramientas simples y potentes: registra productos, calcula costos y genera reportes al instante."
+  }
+}
+  

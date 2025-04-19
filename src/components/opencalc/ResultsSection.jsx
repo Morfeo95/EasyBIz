@@ -18,7 +18,7 @@ const ResultsSection = ({ results, gastosPlanta, insumos, productName, currency,
     return <div className="text-green-700 font-bold">Cargando...</div>;
 
   // Desestructuración de textos y valores de resultados
-  const { header, cards, plantCostDetails, suppliesDetails } = messages.resultsSection;
+  const { header, cards, plantCostDetails, suppliesDetails } = messages.opencalc.resultsSection;
   const {
     costElaboration,
     monthlyPlantCost,

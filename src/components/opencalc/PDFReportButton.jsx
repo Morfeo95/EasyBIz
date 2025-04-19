@@ -98,7 +98,7 @@ const PDFReportButton = ({ results, productName, currency, gastosPlanta, insumos
         pdf.setFontSize(10);
         pdf.setTextColor(150, 150, 150);
         pdf.text(
-          messages.pdfReportButton.watermark,
+          messages.opencalc.pdfReportButton.watermark,
           pageWidth - margin,
           pageHeight - margin,
           { align: 'right' }
@@ -120,7 +120,7 @@ const PDFReportButton = ({ results, productName, currency, gastosPlanta, insumos
       data-html2canvas-ignore="true"
       className="text-green-700 font-bold underline bg-transparent border-0 cursor-pointer focus:outline-none no-print"
     >
-      {messages.pdfReportButton.generate}
+      {messages.opencalc.pdfReportButton.generate}
     </button>
   );
 };

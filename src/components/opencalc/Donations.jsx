@@ -5,13 +5,13 @@ import useTranslations from "../../hooks/useTranslations"; // Custom hook for ha
 
 // Define the Donations component
 const Donations = () => {
-  const translations = useTranslations(); // Fetch translation data using custom hook
+  const messages = useTranslations(); // Fetch translation data using custom hook
   
-  // Return null (render nothing) if translations aren't loaded yet
-  if (!translations) return null;
+  // Return null (render nothing) if messages.opencalc aren't loaded yet
+  if (!messages) return null;
   
-  // Destructure the 'donations' object from translations for localized text
-  const { donations } = translations;
+  // Destructure the 'donations' object from messages.opencalc for localized text
+  const { donations } = messages.opencalc;
 
   return (
     // Main container with animation using Framer Motion

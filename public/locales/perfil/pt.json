@@ -1,0 +1,63 @@
+{
+    "tabs": {
+      "dashboard": "Painel",
+      "businesses": "Negócios",
+      "products": "Produtos",
+      "estimados": "Estimativas",
+      "settings": "Configurações"
+    },
+    "modal": {
+      "addBusiness": "Adicionar negócio",
+      "editBusiness": "Editar negócio",
+      "addProduct": "Adicionar produto"
+    },
+    "loading": "Carregando...",
+    "errorFallback": "Ocorreu um erro:",
+    "sidebar": {
+  "brand": "EasyBizTools",
+  "dashboard": "Painel",
+  "businesses": "Negócios",
+  "products": "Produtos",
+  "estimados": "Estimativas",
+  "settings": "Configurações"
+},
+"ajustesSection": {
+    "title": "Configurações do Usuário",
+    "labels": {
+      "nombre": "Nome",
+      "email": "Email",
+      "password": "Senha"
+    },
+    "placeholders": {
+      "nombre": "Digite seu nome",
+      "email": "Digite seu email",
+      "password": "Nova senha (opcional)"
+    },
+    "button": "Salvar Alterações"
+  },
+  "businessForm": {
+    "placeholders": {
+      "name": "Nome do negócio"
+    },
+    "upload": {
+      "uploading": "Carregando...",
+      "label": "Enviar imagem"
+    },
+    "preview": "Visualização",
+    "button": "Criar negócio"
+  },
+  "businessList": {
+    "noItems": "Você ainda não tem negócios registrados.",
+    "buttons": {
+      "edit": "Editar",
+      "delete": "Excluir"
+    }
+  },
+
+  "businessSection": {
+    "title": "Seus negócios",
+    "button": "Adicionar"
+  }
+
+  }
+  

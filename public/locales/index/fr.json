@@ -1,0 +1,27 @@
+{
+    "cta": {
+      "title": "Prêt à optimiser votre entreprise ?",
+      "descriptionPrefix": "Commencez dès maintenant avec",
+      "descriptionSuffix": "et amenez vos finances au niveau supérieur.",
+      "button": "Commencez avec OpenCalc"
+    },
+    "features": [
+    {
+      "title": "Inscription d’utilisateurs",
+      "desc": "Créez un compte et accédez à tous vos outils depuis un seul endroit."
+    },
+    {
+      "title": "Modification des devis anciens",
+      "desc": "Modifiez vos devis précédents grâce à l’intégration API."
+    },
+    {
+      "title": "Gestion des entreprises et produits",
+      "desc": "Gérez vos entreprises, produits et devis depuis votre profil."
+    }
+  ],
+  "hero": {
+    "title": "Bienvenue chez EasyBiz",
+    "description": "Faites croître votre entreprise avec des outils simples et puissants : enregistrez des produits, calculez les coûts et générez des rapports instantanément."
+  }
+  }
+  
