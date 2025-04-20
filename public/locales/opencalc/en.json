@@ -7,7 +7,7 @@
       "dailyExpenses": "Daily Expenses and Others"
     },
     "donationModal": {
-      "message": "Help us keep improving by donating to our project!"
+      "message": "Support us with a donation to help us buy a domain and keep growing!"
     },
     "productInfoSection": {
       "title": "Product Information"
@@ -229,5 +229,6 @@
       "title": "Support Us",
       "patreonButton": "Support us on Patreon",
       "koFiAlt": "Buy a coffee on ko-fi.com"
-    }
+    },
+    "saveButton": "Save Estimate"
   }

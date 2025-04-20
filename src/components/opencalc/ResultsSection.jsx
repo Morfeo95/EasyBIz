@@ -79,7 +79,7 @@ const ResultsSection = ({ results, gastosPlanta, insumos, productName, currency,
           data-html2canvas-ignore="true"
           className="text-green-700 font-bold underline bg-transparent border-0 cursor-pointer focus:outline-none no-print"
         >
-          Guardar estimado
+          {messages.opencalc.saveButton}
         </button>
       </div>
 

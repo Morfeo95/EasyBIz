@@ -257,7 +257,7 @@ const OpenCalc = () => {
         <>
           {/* Sección 1: Información del producto */}
           <section className="bg-white p-4 md:p-6 rounded-xl shadow-sm">
-            <DonationModal message="¡Apóyanos con una donación!" />
+            <DonationModal message={messages.opencalc.donationModal.message} />
             <h2 className="text-xl font-bold text-green-700 text-center">
               {messages.opencalc.productInfoSection.title}
             </h2>

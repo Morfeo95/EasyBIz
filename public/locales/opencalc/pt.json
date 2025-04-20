@@ -7,7 +7,7 @@
     "dailyExpenses": "Despesas Diárias e Outros"
   },
   "donationModal": {
-    "message": "Ajude-nos a continuar melhorando doando para o nosso projeto!"
+    "message": " Ajude-nos com uma doação para comprarmos um domínio e continuarmos crescendo!"
   },
   "productInfoSection": {
     "title": "Informações do Produto"
@@ -228,6 +228,7 @@
     "title": "Apoie-nos",
     "patreonButton": "Apoie-nos no Patreon",
     "koFiAlt": "Compre um café no ko-fi.com"
-  }
+  },
+  "saveButton": "Salvar Estimativa"
 }
 
