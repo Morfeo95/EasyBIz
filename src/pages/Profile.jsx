@@ -50,6 +50,7 @@
     const location = useLocation();
     const params = new URLSearchParams(location.search);
     const prodId = params.get("productId");
+    const estimadoIdParam = params.get("estimadoId");
     const [editingBusiness, setEditingBusiness] = useState(null);
 
     // Estados para datos y UI
@@ -81,10 +82,11 @@
     }, [messages, user]);
     // NUEVO: Abrir el modal de producto si se detecta productId en la query string
     useEffect(() => {
-      if (prodId) {
+      if (prodId || estimadoIdParam) {
+        setActiveTab("products");
         setModalType("product");
       }
-    }, [prodId]);
+    }, [prodId, estimadoIdParam]);
 
     const openModal = type => setModalType(type);
     const closeModal = () => {
