@@ -2,8 +2,13 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import useTranslations from "../../hooks/useTranslations";
 
 const LoginForm = ({ onClose }) => {
+  // 1) Hooks always in same order
+  const messagesAll = useTranslations();
+  const msg = messagesAll?.login?.loginForm;
+
   const { login } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -11,6 +16,18 @@ const LoginForm = ({ onClose }) => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  // 2) Guard until translations loaded
+  if (!msg) {
+    return <div>Loading...</div>;
+  }
+
+  // 3) Destructure translation texts
+  const {
+    emailLabel,
+    passwordLabel,
+    login: loginText,
+    logging
+  } = msg;
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -30,7 +47,9 @@ const LoginForm = ({ onClose }) => {
   return (
     <form onSubmit={handleLogin} className="max-w-96 flex flex-col gap-4">
       <div>
-        <label htmlFor="login-email">Correo electrónico:</label>
+        <label htmlFor="login-email" className="block mb-1">
+          {emailLabel}
+        </label>
         <input
           type="email"
           id="login-email"
@@ -41,7 +60,9 @@ const LoginForm = ({ onClose }) => {
         />
       </div>
       <div>
-        <label htmlFor="login-password">Contraseña:</label>
+        <label htmlFor="login-password" className="block mb-1">
+          {passwordLabel}
+        </label>
         <input
           type="password"
           id="login-password"
@@ -55,9 +76,9 @@ const LoginForm = ({ onClose }) => {
       <button
         type="submit"
         disabled={loading}
-        className="bg-green-600 text-white py-2 rounded hover:bg-green-500"
+        className="bg-green-600 text-white py-2 rounded hover:bg-green-500 disabled:opacity-50"
       >
-        {loading ? "Ingresando..." : "Ingresar"}
+        {loading ? logging : loginText}
       </button>
     </form>
   );

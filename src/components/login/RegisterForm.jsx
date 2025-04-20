@@ -2,8 +2,13 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import useTranslations from "../../hooks/useTranslations";
 
 const RegisterForm = ({ onClose }) => {
+  // 1) Hooks always in the same order
+  const messagesAll = useTranslations();
+  const msg = messagesAll?.login?.registerForm;
+
   const { register } = useContext(AuthContext);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -13,13 +18,28 @@ const RegisterForm = ({ onClose }) => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  // 2) Guard until translations loaded
+  if (!msg) {
+    return <div>Loading...</div>;
+  }
+
+  // 3) Destructure translated strings
+  const {
+    nameLabel,
+    emailLabel,
+    passwordLabel,
+    confirmPasswordLabel,
+    passwordMismatchError,
+    registerButton,
+    registering
+  } = msg;
 
   const handleRegister = async (e) => {
     e.preventDefault();
     setError(null);
 
     if (password !== confirmPassword) {
-      setError("Las contraseñas no coinciden");
+      setError(passwordMismatchError);
       return;
     }
 
@@ -38,7 +58,9 @@ const RegisterForm = ({ onClose }) => {
   return (
     <form onSubmit={handleRegister} className="flex flex-col gap-4">
       <div>
-        <label htmlFor="reg-name">Nombre:</label>
+        <label htmlFor="reg-name" className="block mb-1">
+          {nameLabel}
+        </label>
         <input
           type="text"
           id="reg-name"
@@ -49,7 +71,9 @@ const RegisterForm = ({ onClose }) => {
         />
       </div>
       <div>
-        <label htmlFor="reg-email">Correo electrónico:</label>
+        <label htmlFor="reg-email" className="block mb-1">
+          {emailLabel}
+        </label>
         <input
           type="email"
           id="reg-email"
@@ -60,7 +84,9 @@ const RegisterForm = ({ onClose }) => {
         />
       </div>
       <div>
-        <label htmlFor="reg-password">Contraseña:</label>
+        <label htmlFor="reg-password" className="block mb-1">
+          {passwordLabel}
+        </label>
         <input
           type="password"
           id="reg-password"
@@ -71,7 +97,9 @@ const RegisterForm = ({ onClose }) => {
         />
       </div>
       <div>
-        <label htmlFor="confirm-password">Confirmar Contraseña:</label>
+        <label htmlFor="confirm-password" className="block mb-1">
+          {confirmPasswordLabel}
+        </label>
         <input
           type="password"
           id="confirm-password"
@@ -85,9 +113,9 @@ const RegisterForm = ({ onClose }) => {
       <button
         type="submit"
         disabled={loading}
-        className="bg-green-600 text-white py-2 rounded hover:bg-green-500"
+        className="bg-green-600 text-white py-2 rounded hover:bg-green-500 disabled:opacity-50"
       >
-        {loading ? "Registrando..." : "Registrarse"}
+        {loading ? registering : registerButton}
       </button>
     </form>
   );

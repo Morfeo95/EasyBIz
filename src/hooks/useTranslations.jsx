@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
-const MODULES = ['opencalc', 'index', 'perfil'];
+const MODULES = ['opencalc', 'index', 'perfil','login'];
 
 const useTranslations = () => {
   const { language } = useLanguage();

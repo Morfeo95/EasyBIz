@@ -1,0 +1,35 @@
+{
+    "loginForm": {
+      "emailLabel": "Correo electrónico:",
+      "passwordLabel": "Contraseña:",
+      "login": "Ingresar",
+      "logging": "Ingresando..."
+    },
+    "authModal": {
+  "loginTitle": "Iniciar Sesión",
+  "registerTitle": "Registrarse",
+  "noAccountText": "¿No tienes cuenta?",
+  "registerLink": "Regístrate",
+  "haveAccountText": "¿Ya tienes cuenta?",
+  "loginLink": "Inicia Sesión"
+},
+"registerForm": {
+    "nameLabel": "Nombre:",
+    "emailLabel": "Correo electrónico:",
+    "passwordLabel": "Contraseña:",
+    "confirmPasswordLabel": "Confirmar contraseña:",
+    "passwordMismatchError": "Las contraseñas no coinciden",
+    "registerButton": "Registrarse",
+    "registering": "Registrando..."
+  },
+
+  "loginPage": {
+    "titleLogin": "Inicia sesión",
+    "titleRegister": "Regístrate",
+    "noAccountText": "¿No tienes cuenta?",
+    "registerLink": "Regístrate",
+    "haveAccountText": "¿Ya tienes cuenta?",
+    "loginLink": "Inicia sesión"
+  }
+  }
+  

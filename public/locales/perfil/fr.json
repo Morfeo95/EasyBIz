@@ -54,9 +54,54 @@
     }
   },
 
-  "businessSection": {
-    "title": "Vos entreprises",
-    "button": "Ajouter"
-  }
+  "dashboard": {
+    "stats": [
+      { "key": "businesses", "label": "Entreprises" },
+      { "key": "products",   "label": "Produits" },
+      { "key": "estimados",  "label": "Estimations" }
+    ]
+  },
+  "estimadoSection": {
+    "icon": "📊",
+    "title": "Estimations",
+    "noItems": "Pas encore d'estimations.",
+    "labels": {
+      "units": "unités",
+      "days": "jours",
+      "profit": "bénéfice"
+    },
+    "createdPrefix": "Créé :",
+    "buttons": {
+      "edit": "Modifier",
+      "delete": "Supprimer",
+      "add": "Ajouter une estimation"
+    }
+  },
+  "productForm": {
+  "selectBusinessLabel": "Sélectionner une entreprise",
+  "productNameLabel": "Nom du produit",
+  "productNamePlaceholder": "Ex. Café premium",
+  "salePriceLabel": "Prix de vente",
+  "salePricePlaceholder": "Ex. 19,99",
+  "createEstimadoButton": "Créer une estimation dans OpenCalc",
+  "editEstimadoButton": "Modifier l'estimation",
+  "estimadoGenerated": "Estimation générée :",
+  "descriptionLabel": "Description (optionnelle)",
+  "descriptionPlaceholder": "Détails supplémentaires du produit...",
+  "addProductButton": "Ajouter un produit",
+  "updateProductButton": "Mettre à jour le produit"
+},
+"productList": {
+  "emptyMessage": "Vous n'avez aucun produit enregistré.",
+  "deleteTitle": "Supprimer le produit",
+  "editEstimateButton": "Modifier l'estimation",
+  "createdPrefix": "Créé :"
+},
+"productSection": {
+  "icon": "📦",
+  "title": "Vos produits",
+  "addButton": "Ajouter"
+}
+
   }
   

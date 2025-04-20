@@ -34,13 +34,14 @@
     deleteEstimado,
   } from '../services/estimadoService';
   import { motion, AnimatePresence } from 'framer-motion';
-  import { Building2, PackagePlus, LayoutDashboard, FileText } from 'lucide-react';
+  import { Building2, PackagePlus, LayoutDashboard, FileText, Settings } from 'lucide-react';
 
   const tabIcons = {
     dashboard: <LayoutDashboard className="w-5 h-5 mr-2 text-green-600" />,
     businesses: <Building2 className="w-5 h-5 mr-2 text-blue-600" />,
     products: <PackagePlus className="w-5 h-5 mr-2 text-purple-600" />,
     estimados: <FileText className="w-5 h-5 mr-2 text-purple-600" />,
+    settings: <Settings className="w-5 h-5 mr-2 text-yellow-600" />
   };
 
   const Profile = () => {

@@ -57,6 +57,55 @@
   "businessSection": {
     "title": "Tus negocios",
     "button": "Agregar"
-  }
+  },
+  "dashboard": {
+    "stats": [
+      { "key": "businesses", "label": "Negocios" },
+      { "key": "products",   "label": "Productos" },
+      { "key": "estimados",  "label": "Estimados" }
+    ]
+  },
+  "estimadoSection": {
+    "icon": "📊",
+    "title": "Estimados",
+    "noItems": "No hay estimados aún.",
+    "labels": {
+      "units": "unidades",
+      "days": "días",
+      "profit": "ganancia"
+    },
+    "createdPrefix": "Creado:",
+    "buttons": {
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "add": "Agregar estimado"
+    }
+  },
+  "productForm": {
+  "selectBusinessLabel": "Selecciona un negocio",
+  "productNameLabel": "Nombre del producto",
+  "productNamePlaceholder": "Ej. Café premium",
+  "salePriceLabel": "Precio de venta",
+  "salePricePlaceholder": "Ej. 19.99",
+  "createEstimadoButton": "Crear estimado en OpenCalc",
+  "editEstimadoButton": "Editar estimado",
+  "estimadoGenerated": "Estimado generado:",
+  "descriptionLabel": "Descripción (opcional)",
+  "descriptionPlaceholder": "Detalles adicionales del producto...",
+  "addProductButton": "Agregar producto",
+  "updateProductButton": "Actualizar producto"
+},
+"productList": {
+  "emptyMessage": "Aún no tienes productos registrados.",
+  "deleteTitle": "Eliminar producto",
+  "editEstimateButton": "Editar estimado",
+  "createdPrefix": "Creado:"
+},
+"productSection": {
+  "icon": "📦",
+  "title": "Tus productos",
+  "addButton": "Agregar"
+}
+
   }
   

@@ -3,17 +3,18 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { PackagePlus, Calculator, StickyNote } from "lucide-react";
+import useTranslations from "../../hooks/useTranslations";
 import { fetchProductById } from "../../services/productService";
 
 const ProductForm = ({ productId, businesses, onCreate, onUpdate }) => {
+  // Hooks must be called unconditionally
   const navigate = useNavigate();
   const { pathname, search } = useLocation();
   const params = new URLSearchParams(search);
+  const messagesAll = useTranslations();
+  const messages = messagesAll?.perfil?.productForm;
 
-  // Determinar modo edición basándose en la prop productId
   const isEdit = Boolean(productId);
-
-  // Lee otros parámetros para inicializar el formulario
   const nameParam = params.get("productName");
   const priceParam = params.get("salePrice");
   const queryEstimadoId = params.get("estimadoId");
@@ -24,7 +25,7 @@ const ProductForm = ({ productId, businesses, onCreate, onUpdate }) => {
   const [descripcion, setDescripcion] = useState("");
   const [estimadoId, setEstimadoId] = useState(queryEstimadoId || null);
 
-  // Si es edición, carga la información del producto usando productId
+  // Effects
   useEffect(() => {
     if (!isEdit) return;
     (async () => {
@@ -41,7 +42,6 @@ const ProductForm = ({ productId, businesses, onCreate, onUpdate }) => {
     })();
   }, [isEdit, productId, nameParam, priceParam, queryEstimadoId]);
 
-  // Actualiza campos si OpenCalc retorna nuevos parámetros
   useEffect(() => {
     if (nameParam !== null) setNombre(nameParam);
     if (priceParam !== null) setPrecio(priceParam);
@@ -49,22 +49,41 @@ const ProductForm = ({ productId, businesses, onCreate, onUpdate }) => {
     if (est !== null) setEstimadoId(est);
   }, [nameParam, priceParam, params]);
 
-  // Para creación asigna el primer negocio por defecto
   useEffect(() => {
     if (!isEdit && businesses.length) {
       setNegocioId(businesses[0].id);
     }
   }, [businesses, isEdit]);
 
-  // LIMPIAR LA URL SOLO SI NO estamos en modo edición
   useEffect(() => {
-    // Si productId NO existe (modo creación) se limpia la URL
     if (!isEdit && search) {
       navigate(pathname, { replace: true });
     }
   }, [search, pathname, navigate, isEdit]);
 
-  const handleSubmit = async (e) => {
+  // Guard: wait for translations
+  if (!messages) {
+    return <div>Loading...</div>;
+  }
+
+  // Destructure translation texts
+  const {
+    selectBusinessLabel,
+    productNameLabel,
+    productNamePlaceholder,
+    salePriceLabel,
+    salePricePlaceholder,
+    createEstimadoButton,
+    editEstimadoButton,
+    estimadoGenerated,
+    descriptionLabel,
+    descriptionPlaceholder,
+    addProductButton,
+    updateProductButton
+  } = messages;
+
+  // Handlers
+  const handleSubmit = async e => {
     e.preventDefault();
     const data = {
       negocioId: Number(negocioId),
@@ -72,7 +91,7 @@ const ProductForm = ({ productId, businesses, onCreate, onUpdate }) => {
       precio: parseFloat(precio),
       descripcion: descripcion.trim() || null,
       estimadoId: estimadoId ? Number(estimadoId) : null,
-      id: isEdit ? Number(productId) : undefined,
+      id: isEdit ? Number(productId) : undefined
     };
     try {
       if (isEdit) {
@@ -80,18 +99,15 @@ const ProductForm = ({ productId, businesses, onCreate, onUpdate }) => {
       } else {
         await onCreate(data);
       }
-      // Reinicia el formulario y navega a la ruta limpia
       setNombre("");
       setPrecio("");
       setDescripcion("");
       navigate(pathname);
     } catch (err) {
-      console.error(err);
       alert(err.message);
     }
   };
 
-  // Al invocar OpenCalc se pasa productId solo si estamos en edición
   const handleCreateEstimado = () => {
     const returnUrl = `${window.location.origin}${pathname}`;
     const qp = new URLSearchParams();
@@ -112,15 +128,15 @@ const ProductForm = ({ productId, businesses, onCreate, onUpdate }) => {
       className="flex flex-col gap-4 bg-white p-6 rounded-2xl shadow"
     >
       <label className="text-sm font-medium text-gray-700">
-        Selecciona un negocio
+        {selectBusinessLabel}
       </label>
       <select
         value={negocioId}
-        onChange={(e) => setNegocioId(e.target.value)}
+        onChange={e => setNegocioId(e.target.value)}
         required
         className="border px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
       >
-        {businesses.map((b) => (
+        {businesses.map(b => (
           <option key={b.id} value={b.id}>
             {b.name}
           </option>
@@ -128,26 +144,26 @@ const ProductForm = ({ productId, businesses, onCreate, onUpdate }) => {
       </select>
 
       <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
-        <PackagePlus className="w-4 h-4 text-green-600" /> Nombre del producto
+        <PackagePlus className="w-4 h-4 text-green-600" /> {productNameLabel}
       </label>
       <input
         type="text"
-        placeholder="Ej. Café premium"
+        placeholder={productNamePlaceholder}
         value={nombre}
-        onChange={(e) => setNombre(e.target.value)}
+        onChange={e => setNombre(e.target.value)}
         required
         className="border px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
       />
 
       <label className="text-sm font-medium text-gray-700">
-        Precio de venta
+        {salePriceLabel}
       </label>
       <input
         type="number"
         step="0.01"
-        placeholder="Ej. 19.99"
+        placeholder={salePricePlaceholder}
         value={precio}
-        onChange={(e) => setPrecio(e.target.value)}
+        onChange={e => setPrecio(e.target.value)}
         required
         className="border px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
       />
@@ -160,22 +176,22 @@ const ProductForm = ({ productId, businesses, onCreate, onUpdate }) => {
         className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition"
       >
         <Calculator className="w-4 h-4" />
-        {isEdit ? "Editar estimado" : "Crear estimado en OpenCalc"}
+        {isEdit ? editEstimadoButton : createEstimadoButton}
       </motion.button>
 
       {estimadoId && (
         <p className="text-sm text-gray-600">
-          Estimado generado: <strong>#{estimadoId}</strong>
+          {estimadoGenerated} <strong>#{estimadoId}</strong>
         </p>
       )}
 
       <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
-        <StickyNote className="w-4 h-4 text-yellow-500" /> Descripción (opcional)
+        <StickyNote className="w-4 h-4 text-yellow-500" /> {descriptionLabel}
       </label>
       <textarea
-        placeholder="Detalles adicionales del producto..."
+        placeholder={descriptionPlaceholder}
         value={descripcion}
-        onChange={(e) => setDescripcion(e.target.value)}
+        onChange={e => setDescripcion(e.target.value)}
         className="border px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
       />
 
@@ -189,7 +205,7 @@ const ProductForm = ({ productId, businesses, onCreate, onUpdate }) => {
             : "bg-green-600 hover:bg-green-500 text-white"
         } self-start`}
       >
-        {isEdit ? "Actualizar producto" : "Agregar producto"}
+        {isEdit ? updateProductButton : addProductButton}
       </motion.button>
     </motion.form>
   );
@@ -197,7 +213,7 @@ const ProductForm = ({ productId, businesses, onCreate, onUpdate }) => {
 
 ProductForm.defaultProps = {
   onCreate: () => {},
-  onUpdate: () => {},
+  onUpdate: () => {}
 };
 
 export default ProductForm;

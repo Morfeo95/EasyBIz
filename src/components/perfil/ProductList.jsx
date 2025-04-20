@@ -1,21 +1,25 @@
+// src/components/perfil/ProductList.jsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import {
-  Package,
-  StickyNote,
-  Trash2,
-  CalendarDays,
-  Pencil,
-} from "lucide-react";
+import { Package, StickyNote, Trash2, CalendarDays, Pencil } from "lucide-react";
+import useTranslations from "../../hooks/useTranslations";
 
 const ProductList = ({ products, onDelete }) => {
   const navigate = useNavigate();
+  const msg = useTranslations()?.perfil?.productList;
+
+  // Guard: wait for translations
+  if (!msg) {
+    return <div>Loading...</div>;
+  }
+
+  const { emptyMessage, deleteTitle, editEstimateButton, createdPrefix } = msg;
 
   if (!products.length) {
     return (
       <p className="text-gray-600 italic text-center">
-        Aún no tienes productos registrados.
+        {emptyMessage}
       </p>
     );
   }
@@ -45,7 +49,7 @@ const ProductList = ({ products, onDelete }) => {
             <button
               onClick={() => onDelete(p.id)}
               className="text-red-600 hover:text-red-800 transition p-1"
-              title="Eliminar producto"
+              title={deleteTitle}
             >
               <Trash2 className="w-5 h-5" />
             </button>
@@ -65,7 +69,7 @@ const ProductList = ({ products, onDelete }) => {
                 className="flex items-center gap-1 text-sm px-3 py-1 rounded-lg bg-blue-100 text-blue-800 hover:bg-blue-200 transition"
               >
                 <Pencil className="w-4 h-4" />
-                Editar estimado
+                {editEstimateButton}
               </button>
             )}
           </div>
@@ -79,7 +83,7 @@ const ProductList = ({ products, onDelete }) => {
 
           <div className="text-xs text-gray-500 flex items-center gap-1">
             <CalendarDays className="w-4 h-4" />
-            Creado: {new Date(p.fechaDeCreacion).toLocaleString()}
+            {createdPrefix} {new Date(p.fechaDeCreacion).toLocaleString()}
           </div>
         </motion.li>
       ))}

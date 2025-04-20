@@ -2,14 +2,32 @@
 import React, { useContext, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import useTranslations from "../hooks/useTranslations";
 import LoginForm from "../components/login/LoginForm";
-import RegisterForm from "../components/login/RegisterForm"; // Asegúrate de que la ruta sea la correcta
+import RegisterForm from "../components/login/RegisterForm";
 
 const LoginPage = () => {
+  // Hooks
+  const messagesAll = useTranslations();
+  const msg = messagesAll?.login?.loginPage;
   const { user } = useContext(AuthContext);
   const [isRegister, setIsRegister] = useState(false);
 
-  // Si ya hay un usuario autenticado, redirige al perfil
+  // Guard: wait for translations
+  if (!msg) {
+    return <div>Loading...</div>;
+  }
+
+  const {
+    titleLogin,
+    titleRegister,
+    noAccountText,
+    registerLink,
+    haveAccountText,
+    loginLink
+  } = msg;
+
+  // Redirect if already authenticated
   if (user) {
     return <Navigate to="/profile" replace />;
   }
@@ -17,36 +35,33 @@ const LoginPage = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="p-8 bg-white rounded shadow-md w-full max-w-sm">
+        <h1 className="text-2xl font-bold mb-6 text-center">
+          {isRegister ? titleRegister : titleLogin}
+        </h1>
         {isRegister ? (
-          <>
-            <h1 className="text-2xl font-bold mb-6 text-center">Regístrate</h1>
-            <RegisterForm onClose={() => setIsRegister(false)} />
-          </>
+          <RegisterForm onClose={() => setIsRegister(false)} />
         ) : (
-          <>
-            <h1 className="text-2xl font-bold mb-6 text-center">Inicia sesión</h1>
-            <LoginForm />
-          </>
+          <LoginForm />
         )}
         <div className="mt-4 text-center">
           {isRegister ? (
             <>
-              ¿Ya tienes cuenta?{" "}
+              {haveAccountText}{" "}
               <button
                 onClick={() => setIsRegister(false)}
                 className="text-blue-500 hover:underline"
               >
-                Inicia sesión
+                {loginLink}
               </button>
             </>
           ) : (
             <>
-              ¿No tienes cuenta?{" "}
+              {noAccountText}{" "}
               <button
                 onClick={() => setIsRegister(true)}
                 className="text-blue-500 hover:underline"
               >
-                Regístrate
+                {registerLink}
               </button>
             </>
           )}

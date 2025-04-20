@@ -1,0 +1,35 @@
+{
+    "loginForm": {
+      "emailLabel": "Email:",
+      "passwordLabel": "Password:",
+      "login": "Log in",
+      "logging": "Logging in..."
+    },
+    "authModal": {
+  "loginTitle": "Login",
+  "registerTitle": "Register",
+  "noAccountText": "Don't have an account?",
+  "registerLink": "Sign up",
+  "haveAccountText": "Already have an account?",
+  "loginLink": "Log in"
+},
+"registerForm": {
+    "nameLabel": "Name:",
+    "emailLabel": "Email:",
+    "passwordLabel": "Password:",
+    "confirmPasswordLabel": "Confirm password:",
+    "passwordMismatchError": "Passwords do not match",
+    "registerButton": "Register",
+    "registering": "Registering..."
+  },
+  "loginPage": {
+    "titleLogin": "Log in",
+    "titleRegister": "Register",
+    "noAccountText": "Don't have an account?",
+    "registerLink": "Register",
+    "haveAccountText": "Already have an account?",
+    "loginLink": "Log in"
+  }
+
+  }
+  
